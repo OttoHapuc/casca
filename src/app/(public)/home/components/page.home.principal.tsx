@@ -27,7 +27,7 @@ export default function Principal({ badge, titulo, subtitulo, imagemFundo }: Tip
             {badge}
           </span>
 
-          <h1 className="mb-8 text-6xl font-black leading-[1.1] text-white md:text-8xl">
+          <h1 className="mb-8 text-4xl font-black leading-[1.1] text-white sm:text-5xl md:text-7xl lg:text-8xl break-words">
             {titulo.split(' ').map((word, idx) => (
               <span key={idx} className={idx > 2 ? 'text-primary-yellow' : ''}>
                 {word}{' '}
@@ -35,7 +35,7 @@ export default function Principal({ badge, titulo, subtitulo, imagemFundo }: Tip
             ))}
           </h1>
 
-          <p className="mx-auto mb-12 max-w-2xl text-xl leading-relaxed text-white/60 md:text-2xl">
+          <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-white/60 sm:text-xl md:text-2xl">
             {subtitulo}
           </p>
 

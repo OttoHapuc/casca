@@ -29,7 +29,7 @@ export default function Projetos({
             <span className="mb-4 inline-block text-sm font-black tracking-widest text-primary-yellow uppercase">
               Projetos Especiais
             </span>
-            <h2 className="max-w-xl text-4xl font-black leading-tight md:text-5xl">
+            <h2 className="max-w-xl text-3xl sm:text-4xl font-black leading-tight md:text-5xl break-words">
               {titulo}
             </h2>
             {descricao && <p className="mt-4 text-white/60">{descricao}</p>}
@@ -59,7 +59,7 @@ export default function Projetos({
                 </div>
               )}
               <div className="relative z-10 flex h-full flex-col">
-                <h3 className="mb-6 text-3xl font-black text-primary-yellow uppercase leading-tight md:text-4xl">
+                <h3 className="mb-6 text-2xl sm:text-3xl font-black text-primary-yellow uppercase leading-tight md:text-4xl break-words">
                   {proj.titulo}
                 </h3>
                 <div className="mt-auto space-y-4">

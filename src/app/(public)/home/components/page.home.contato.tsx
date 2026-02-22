@@ -22,7 +22,7 @@ export default function Contato({ badge, titulo, descricao, email, endereco, ima
             <span className="mb-6 inline-block text-sm font-black tracking-widest text-primary-yellow uppercase">
               {badge}
             </span>
-            <h2 className="mb-8 text-4xl font-black leading-tight text-white md:text-6xl">
+            <h2 className="mb-8 text-3xl sm:text-4xl font-black leading-tight text-white md:text-6xl break-words">
               {titulo}
             </h2>
             <p className="mb-12 text-xl leading-relaxed text-white/60">{descricao}</p>

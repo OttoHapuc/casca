@@ -28,7 +28,7 @@ export default function Atividades({
           <span className="mb-4 inline-block text-sm font-black tracking-widest text-primary-yellow uppercase text-stroke-small">
             Nossas Atividades
           </span>
-          <h2 className="mx-auto max-w-2xl text-4xl font-black leading-tight text-deep-charcoal md:text-5xl">
+          <h2 className="mx-auto max-w-2xl text-3xl sm:text-4xl font-black leading-tight text-deep-charcoal md:text-5xl break-words">
             {titulo}
           </h2>
           {descricao && <p className="mt-4 text-grey-accent">{descricao}</p>}

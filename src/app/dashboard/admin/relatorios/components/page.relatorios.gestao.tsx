@@ -48,7 +48,7 @@ export default function GestaoRelatorios() {
       const data: RespostaPadrao = await res.json()
 
       if (data.sucesso) {
-        setRelatorios([data.dados, ...relatorios])
+        await carregarRelatorios()
         setNovoRelatorio({ titulo: '', url: '', ano: new Date().getFullYear() })
         setMensagem({ texto: 'Documento adicionado com sucesso!' })
       } else {
@@ -162,26 +162,26 @@ export default function GestaoRelatorios() {
                     </tr>
                   ) : (
                     relatorios.map((rel) => (
-                      <tr key={rel.id} className="group transition-colors hover:bg-light-cream/30">
+                      <tr key={rel?.id} className="group transition-colors hover:bg-light-cream/30">
                         <td className="px-8 py-6">
                           <div className="flex items-center space-x-3">
                             <div>
                               <div className="text-sm font-black text-deep-charcoal">{rel?.titulo}</div>
                               <div className="text-[10px] font-black uppercase text-grey-accent/50 tracking-wider">
-                                Adicionado em {new Date(rel.data).toLocaleDateString()}
+                                Adicionado em {new Date(rel?.data).toLocaleDateString()}
                               </div>
                             </div>
                           </div>
                         </td>
                         <td className="px-8 py-6 text-center">
                           <span className="rounded-lg bg-deep-charcoal/5 px-3 py-1 text-xs font-black text-deep-charcoal group-hover:bg-primary-yellow group-hover:text-deep-charcoal">
-                            {new Date(rel.data).getFullYear()}
+                            {new Date(rel?.data).getFullYear()}
                           </span>
                         </td>
                         <td className="px-8 py-6 text-right">
                           <div className="flex justify-end space-x-2">
                             <a
-                              href={rel.arquivoUrl}
+                              href={rel?.arquivoUrl}
                               target="_blank"
                               className="flex h-9 w-9 items-center justify-center rounded-lg border border-deep-charcoal/5 text-grey-accent transition-all hover:border-primary-yellow hover:text-primary-yellow"
                               rel="noreferrer"
@@ -189,7 +189,7 @@ export default function GestaoRelatorios() {
                               <Eye size={14} />
                             </a>
                             <button
-                              onClick={() => excluir(rel.id)}
+                              onClick={() => excluir(rel?.id)}
                               className="flex h-9 w-9 items-center justify-center rounded-lg border border-deep-charcoal/5 text-grey-accent transition-all hover:border-red-100 hover:bg-red-50 hover:text-red-600"
                             >
                               <Trash2 size={14} />

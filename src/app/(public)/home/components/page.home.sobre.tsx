@@ -11,7 +11,7 @@ export default function Sobre({ titulo, paragrafos, pilares, imagemDestaque }: T
             <span className="mb-4 inline-block text-sm font-black tracking-widest text-primary-yellow uppercase">
               Quem Somos
             </span>
-            <h2 className="mb-8 text-4xl font-black leading-tight text-deep-charcoal md:text-5xl">
+            <h2 className="mb-8 text-3xl sm:text-4xl font-black leading-tight text-deep-charcoal md:text-5xl break-words">
               {titulo}
             </h2>
             <div className="space-y-6">
