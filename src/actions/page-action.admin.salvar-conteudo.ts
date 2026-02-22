@@ -15,6 +15,7 @@ export async function salvarConteudoHome(dados: any): Promise<RespostaPadrao> {
 
       return { sucesso: true, mensagem: 'Conteúdo atualizado com sucesso' }
     } catch (erro) {
+      console.error('ERRO AO SALVAR CONTEUDO:', erro)
       return { sucesso: false, mensagem: 'Erro ao salvar conteúdo' }
     }
   })

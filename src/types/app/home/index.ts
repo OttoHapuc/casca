@@ -2,6 +2,7 @@ export type TipoHero = {
   badge: string
   titulo: string
   subtitulo: string
+  imagemFundo?: string
 }
 
 export type TipoSobre = {
@@ -10,7 +11,9 @@ export type TipoSobre = {
   pilares: Array<{
     titulo: string
     desc: string
+    imagem?: string
   }>
+  imagemDestaque?: string
 }
 
 export type TipoAtividade = {
@@ -18,6 +21,7 @@ export type TipoAtividade = {
   ordem: string
   titulo: string
   descricao: string
+  imagem?: string
 }
 
 export type TipoProjeto = {
@@ -26,6 +30,7 @@ export type TipoProjeto = {
   detalhes: string
   parceiros: string
   resultados: string
+  imagem?: string
 }
 
 export type TipoContato = {
@@ -34,6 +39,7 @@ export type TipoContato = {
   descricao: string
   email: string
   endereco: string
+  imagemFundo?: string
 }
 
 export type TipoConteudoHome = {
@@ -43,11 +49,13 @@ export type TipoConteudoHome = {
     titulo: string
     descricao: string
     lista: TipoAtividade[]
+    imagemFundo?: string
   }
   projetos: {
     titulo: string
     descricao: string
     lista: TipoProjeto[]
+    imagemFundo?: string
   }
   contato: TipoContato
 }

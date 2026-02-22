@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { LayoutDashboard, FileText, Globe, LogOut } from 'lucide-react'
 
+import Image from 'next/image'
+
 const navItems = [
     { name: 'Painel Geral', href: '/dashboard/admin', icon: LayoutDashboard },
     { name: 'Gestão de Conteúdo', href: '/dashboard/admin#conteudo', icon: Globe },
-    { name: 'Relatórios', href: '/dashboard/admin#relatorios', icon: FileText },
+    { name: 'Transparência', href: '/dashboard/admin#transparencia', icon: FileText },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -19,12 +21,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-deep-charcoal transition-all duration-300">
                 <div className="flex h-full flex-col p-8">
                     <div className="mb-12">
-                        <Link href="/home" className="flex items-center space-x-2">
-                            <span className="text-2xl font-black tracking-tighter text-white">
-                                C.A.S.C.A<span className="text-primary-yellow">.</span>
-                            </span>
-                            <span className="rounded-md bg-white/5 px-2 py-1 text-[10px] font-black uppercase text-white/40">
-                                Admin
+                        <Link href="/home" className="flex flex-col space-y-2 items-center">
+                            <Image
+                                src="/logo2.jpg"
+                                alt="C.A.S.C.A. Logo"
+                                width={160}
+                                height={60}
+                                className="w-24 drop-shadow-md rounded-full transition-transform duration-300 hover:scale-105 text-primary-yellow"
+                            />
+                            <span className="w-fit rounded-md bg-white/5 px-2 py-1 text-[10px] font-black uppercase text-white/40">
+                                Painel Administrativo
                             </span>
                         </Link>
                     </div>
@@ -37,8 +43,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                     key={item.name}
                                     href={item.href}
                                     className={`flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold transition-all ${isActive
-                                            ? 'bg-primary-yellow text-deep-charcoal'
-                                            : 'text-white/60 hover:bg-white/5 hover:text-white'
+                                        ? 'bg-primary-yellow text-deep-charcoal'
+                                        : 'text-white/60 hover:bg-white/5 hover:text-white'
                                         }`}
                                 >
                                     <item.icon size={20} />

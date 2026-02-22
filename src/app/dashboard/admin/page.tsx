@@ -8,7 +8,7 @@ export default function AdminDashboardPage() {
         <GestaoConteudo />
       </section>
 
-      <section id="relatorios" className="scroll-mt-32">
+      <section id="transparencia" className="scroll-mt-32">
         <GestaoRelatorios />
       </section>
     </div>

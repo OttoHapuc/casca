@@ -1,4 +1,4 @@
-# Diretrizes de Padronização do Sistema (Next.js + TS + Prisma + Postgres)
+ob# Diretrizes de Padronização do Sistema (Next.js + TS + Prisma + Postgres)
 
 ## 1. Objetivo
 

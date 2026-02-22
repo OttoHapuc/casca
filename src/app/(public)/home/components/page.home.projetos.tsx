@@ -4,14 +4,26 @@ export default function Projetos({
   titulo,
   descricao,
   lista,
+  imagemFundo,
 }: {
   titulo: string
   descricao: string
   lista: TipoProjeto[]
+  imagemFundo?: string
 }) {
   return (
-    <section id="projetos" className="bg-deep-charcoal py-32 text-white">
-      <div className="container mx-auto px-6">
+    <section id="projetos" className="relative bg-deep-charcoal py-32 text-white overflow-hidden">
+      {imagemFundo && (
+        <div className="absolute inset-0 z-0">
+          <img
+            src={imagemFundo}
+            alt="Background"
+            className="h-full w-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal via-transparent to-deep-charcoal" />
+        </div>
+      )}
+      <div className="container relative z-10 mx-auto px-6">
         <div className="mb-16 flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
           <div className="text-center md:text-left">
             <span className="mb-4 inline-block text-sm font-black tracking-widest text-primary-yellow uppercase">
@@ -34,13 +46,23 @@ export default function Projetos({
           {lista.map((proj, idx) => (
             <div
               key={proj.id || idx}
-              className="group relative h-full overflow-hidden rounded-[2.5rem] bg-white/5 p-10 transition-all hover:bg-white/10"
+              className="group relative h-full min-h-[400px] overflow-hidden rounded-[2.5rem] bg-white/5 p-10 transition-all hover:bg-white/10"
             >
+              {proj.imagem && (
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={proj.imagem}
+                    alt={proj.titulo}
+                    className="h-full w-full object-cover opacity-40 grayscale transition-all group-hover:opacity-60 group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/60 to-transparent" />
+                </div>
+              )}
               <div className="relative z-10 flex h-full flex-col">
                 <h3 className="mb-6 text-3xl font-black text-primary-yellow uppercase leading-tight md:text-4xl">
                   {proj.titulo}
                 </h3>
-                <div className="space-y-4">
+                <div className="mt-auto space-y-4">
                   <p className="text-lg leading-relaxed text-white/80">
                     <span className="block text-[10px] font-black tracking-[0.2em] text-white/40 uppercase">
                       Objetivo

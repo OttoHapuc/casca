@@ -1,11 +1,21 @@
 import { TipoContato } from '@/types/app/home'
 
-export default function Contato({ badge, titulo, descricao, email, endereco }: TipoContato) {
+export default function Contato({ badge, titulo, descricao, email, endereco, imagemFundo }: TipoContato) {
   return (
     <section id="contato" className="bg-white py-32">
       <div className="container mx-auto px-6">
         <div className="relative overflow-hidden rounded-[3.5rem] bg-deep-charcoal p-12 text-center md:p-24 shadow-2xl">
-          <div className="absolute -top-32 -left-32 h-64 w-64 rounded-full bg-primary-yellow/10 blur-3xl" />
+          {imagemFundo && (
+            <div className="absolute inset-0 z-0">
+              <img
+                src={imagemFundo}
+                alt="Background"
+                className="h-full w-full object-cover opacity-20"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/40 to-deep-charcoal" />
+            </div>
+          )}
+          <div className="absolute -top-32 -left-32 h-64 w-64 rounded-full bg-primary-yellow/10 blur-3xl transition-all group-hover:bg-primary-yellow/20" />
           <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-primary-yellow/5 blur-3xl" />
 
           <div className="relative z-10 mx-auto max-w-3xl">

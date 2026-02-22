@@ -2,18 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { RespostaPadrao } from '@/types/api'
-import { Plus, Trash2, FileText, Download, Calendar } from 'lucide-react'
-
-type Relatorio = {
-  id: string
-  titulo: string
-  url: string
-  ano: number
-  dataCriacao: string
-}
+import { Plus, Trash2, FileText, Eye, Calendar } from 'lucide-react'
+import { TipoRelatorio } from '@/types/app/transparencia'
 
 export default function GestaoRelatorios() {
-  const [relatorios, setRelatorios] = useState<Relatorio[]>([])
+  const [relatorios, setRelatorios] = useState<TipoRelatorio[]>([])
   const [novoRelatorio, setNovoRelatorio] = useState({ titulo: '', url: '', ano: new Date().getFullYear() })
   const [carregando, setCarregando] = useState(true)
   const [salvando, setSalvando] = useState(false)
@@ -41,17 +34,23 @@ export default function GestaoRelatorios() {
     setMensagem(null)
 
     try {
+      const payload = {
+        titulo: novoRelatorio.titulo,
+        data: new Date(novoRelatorio.ano, 0, 1).toISOString(),
+        categoria: 'Transparência',
+        arquivoUrl: novoRelatorio.url
+      }
       const res = await fetch('/api/auth/relatorios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(novoRelatorio),
+        body: JSON.stringify(payload),
       })
       const data: RespostaPadrao = await res.json()
 
       if (data.sucesso) {
         setRelatorios([data.dados, ...relatorios])
         setNovoRelatorio({ titulo: '', url: '', ano: new Date().getFullYear() })
-        setMensagem({ texto: 'Relatório adicionado com sucesso!' })
+        setMensagem({ texto: 'Documento adicionado com sucesso!' })
       } else {
         setMensagem({ texto: data.mensagem || 'Erro ao salvar', erro: true })
       }
@@ -63,14 +62,14 @@ export default function GestaoRelatorios() {
   }
 
   async function excluir(id: string) {
-    if (!confirm('Tem certeza que deseja excluir este relatório?')) return
+    if (!confirm('Tem certeza que deseja excluir este documento?')) return
 
     try {
       const res = await fetch(`/api/auth/relatorios?id=${id}`, { method: 'DELETE' })
       const data: RespostaPadrao = await res.json()
       if (data.sucesso) {
         setRelatorios(relatorios.filter((r) => r.id !== id))
-        setMensagem({ texto: 'Relatório removido!' })
+        setMensagem({ texto: 'Documento removido!' })
       }
     } catch (e) {
       console.error('Erro ao excluir:', e)
@@ -97,8 +96,8 @@ export default function GestaoRelatorios() {
 
             <form onSubmit={handlesubmit} className="space-y-5">
               <Input
-                label="Título do Relatório"
-                placeholder="Ex: Relatório de Atividades 2023"
+                label="Título do Documento"
+                placeholder="Ex: Relatório Anual 2023"
                 value={novoRelatorio.titulo}
                 onChange={(v) => setNovoRelatorio({ ...novoRelatorio, titulo: v })}
                 required
@@ -124,7 +123,7 @@ export default function GestaoRelatorios() {
                 className="flex w-full items-center justify-center space-x-2 rounded-2xl bg-primary-yellow py-4 font-black text-deep-charcoal shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50"
               >
                 <Plus size={18} />
-                <span>{salvando ? 'Adicionando...' : 'Adicionar Relatório'}</span>
+                <span>{salvando ? 'Adicionando...' : 'Adicionar Documento'}</span>
               </button>
             </form>
 
@@ -158,7 +157,7 @@ export default function GestaoRelatorios() {
                   ) : relatorios.length === 0 ? (
                     <tr>
                       <td colSpan={3} className="px-8 py-10 text-center text-sm font-bold text-grey-accent">
-                        Nenhum relatório cadastrado.
+                        Nenhum documento cadastrado.
                       </td>
                     </tr>
                   ) : (
@@ -166,31 +165,28 @@ export default function GestaoRelatorios() {
                       <tr key={rel.id} className="group transition-colors hover:bg-light-cream/30">
                         <td className="px-8 py-6">
                           <div className="flex items-center space-x-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-deep-charcoal/5 text-deep-charcoal transition-colors group-hover:bg-primary-yellow/20 group-hover:text-primary-yellow">
-                              <Download size={16} />
-                            </div>
                             <div>
-                              <div className="text-sm font-black text-deep-charcoal">{rel.titulo}</div>
+                              <div className="text-sm font-black text-deep-charcoal">{rel?.titulo}</div>
                               <div className="text-[10px] font-black uppercase text-grey-accent/50 tracking-wider">
-                                Adicionado em {new Date(rel.dataCriacao).toLocaleDateString()}
+                                Adicionado em {new Date(rel.data).toLocaleDateString()}
                               </div>
                             </div>
                           </div>
                         </td>
                         <td className="px-8 py-6 text-center">
                           <span className="rounded-lg bg-deep-charcoal/5 px-3 py-1 text-xs font-black text-deep-charcoal group-hover:bg-primary-yellow group-hover:text-deep-charcoal">
-                            {rel.ano}
+                            {new Date(rel.data).getFullYear()}
                           </span>
                         </td>
                         <td className="px-8 py-6 text-right">
                           <div className="flex justify-end space-x-2">
                             <a
-                              href={rel.url}
+                              href={rel.arquivoUrl}
                               target="_blank"
                               className="flex h-9 w-9 items-center justify-center rounded-lg border border-deep-charcoal/5 text-grey-accent transition-all hover:border-primary-yellow hover:text-primary-yellow"
                               rel="noreferrer"
                             >
-                              <Download size={14} />
+                              <Eye size={14} />
                             </a>
                             <button
                               onClick={() => excluir(rel.id)}

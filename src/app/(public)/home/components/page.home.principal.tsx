@@ -2,9 +2,21 @@
 
 import { TipoHero } from '@/types/app/home'
 
-export default function Principal({ badge, titulo, subtitulo }: TipoHero) {
+export default function Principal({ badge, titulo, subtitulo, imagemFundo }: TipoHero) {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-deep-charcoal pt-20">
+      {/* Background Image */}
+      {imagemFundo && (
+        <div className="absolute inset-0 z-0">
+          <img
+            src={imagemFundo}
+            alt="Background"
+            className="h-full w-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal/80 via-transparent to-deep-charcoal" />
+        </div>
+      )}
+
       {/* Background Orbs */}
       <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-primary-yellow/10 blur-[100px]" />
       <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-primary-yellow/5 blur-[100px]" />

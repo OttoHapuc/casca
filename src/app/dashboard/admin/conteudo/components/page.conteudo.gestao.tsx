@@ -62,6 +62,7 @@ export default function GestaoConteudo() {
       ordem: String(conteudo.atividades.lista.length + 1).padStart(2, '0'),
       titulo: 'Nova Atividade',
       descricao: 'Descrição da atividade...',
+      imagem: '',
     }
     setConteudo({
       ...conteudo,
@@ -88,10 +89,29 @@ export default function GestaoConteudo() {
       detalhes: 'Detalhes do projeto...',
       parceiros: 'Parceiros...',
       resultados: 'Resultados...',
+      imagem: '',
     }
     setConteudo({
       ...conteudo,
       projetos: { ...conteudo.projetos, lista: [...conteudo.projetos.lista, novo] },
+    })
+  }
+
+  const addPilar = () => {
+    if (!conteudo) return
+    const novo = { titulo: 'Novo Pilar', desc: 'Descrição do pilar...', imagem: '' }
+    setConteudo({
+      ...conteudo,
+      sobre: { ...conteudo.sobre, pilares: [...conteudo.sobre.pilares, novo] },
+    })
+  }
+
+  const removePilar = (index: number) => {
+    if (!conteudo) return
+    const newPilares = conteudo.sobre.pilares.filter((_, i) => i !== index)
+    setConteudo({
+      ...conteudo,
+      sobre: { ...conteudo.sobre, pilares: newPilares },
     })
   }
 
@@ -145,8 +165,8 @@ export default function GestaoConteudo() {
       {mensagem && (
         <div
           className={`rounded-2xl border p-5 text-sm font-bold shadow-sm transition-all animate-fade-in-up ${mensagem.erro
-              ? 'border-red-100 bg-red-50 text-red-600'
-              : 'border-green-100 bg-green-50 text-green-700'
+            ? 'border-red-100 bg-red-50 text-red-600'
+            : 'border-green-100 bg-green-50 text-green-700'
             }`}
         >
           {mensagem.texto}
@@ -172,6 +192,15 @@ export default function GestaoConteudo() {
               }
             />
             <div className="md:col-span-2">
+              <Input
+                label="URL da Imagem de Fundo"
+                value={conteudo.hero.imagemFundo || ''}
+                onChange={(v) =>
+                  setConteudo({ ...conteudo, hero: { ...conteudo.hero, imagemFundo: v } })
+                }
+              />
+            </div>
+            <div className="md:col-span-2">
               <Textarea
                 label="Subtítulo / Descrição da página inicial"
                 value={conteudo.hero.subtitulo}
@@ -186,13 +215,22 @@ export default function GestaoConteudo() {
         {/* SOBRE SECTION */}
         <Section title="Quem Somos (Sobre)">
           <div className="space-y-8">
-            <Input
-              label="Título de Apresentação"
-              value={conteudo.sobre.titulo}
-              onChange={(v) =>
-                setConteudo({ ...conteudo, sobre: { ...conteudo.sobre, titulo: v } })
-              }
-            />
+            <div className="grid gap-6 md:grid-cols-2">
+              <Input
+                label="Título de Apresentação"
+                value={conteudo.sobre.titulo}
+                onChange={(v) =>
+                  setConteudo({ ...conteudo, sobre: { ...conteudo.sobre, titulo: v } })
+                }
+              />
+              <Input
+                label="URL da Imagem de Destaque"
+                value={conteudo.sobre.imagemDestaque || ''}
+                onChange={(v) =>
+                  setConteudo({ ...conteudo, sobre: { ...conteudo.sobre, imagemDestaque: v } })
+                }
+              />
+            </div>
             <div className="grid gap-6">
               {conteudo.sobre.paragrafos.map((p, i) => (
                 <Textarea
@@ -207,9 +245,27 @@ export default function GestaoConteudo() {
                 />
               ))}
             </div>
+            <div className="flex items-center justify-between border-b border-deep-charcoal/5 pb-4">
+              <h3 className="text-xs font-black uppercase tracking-widest text-primary-yellow">Cards de Destaque (Pilares)</h3>
+              <button
+                type="button"
+                onClick={addPilar}
+                className="flex items-center space-x-2 rounded-xl bg-green-50 px-4 py-2 text-xs font-black uppercase text-green-600 transition-all hover:bg-green-100"
+              >
+                <Plus size={14} />
+                <span>Adicionar Pilar</span>
+              </button>
+            </div>
             <div className="grid gap-6 md:grid-cols-3">
               {conteudo.sobre.pilares.map((pil, i) => (
-                <div key={i} className="rounded-3xl border border-deep-charcoal/5 bg-[#fcfcf7] p-6 shadow-inner">
+                <div key={i} className="group relative rounded-3xl border border-deep-charcoal/5 bg-[#fcfcf7] p-6 shadow-inner transition-all hover:border-primary-yellow/30">
+                  <button
+                    type="button"
+                    onClick={() => removePilar(i)}
+                    className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-lg text-red-300 transition-all hover:bg-red-50 hover:text-red-600"
+                  >
+                    <Trash2 size={16} />
+                  </button>
                   <div className="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-primary-yellow text-xs font-black text-deep-charcoal">
                     {i + 1}
                   </div>
@@ -220,6 +276,15 @@ export default function GestaoConteudo() {
                       onChange={(v) => {
                         const newPil = [...conteudo.sobre.pilares]
                         newPil[i] = { ...newPil[i], titulo: v }
+                        setConteudo({ ...conteudo, sobre: { ...conteudo.sobre, pilares: newPil } })
+                      }}
+                    />
+                    <Input
+                      label="URL da Imagem do Card"
+                      value={pil.imagem || ''}
+                      onChange={(v) => {
+                        const newPil = [...conteudo.sobre.pilares]
+                        newPil[i] = { ...newPil[i], imagem: v }
                         setConteudo({ ...conteudo, sobre: { ...conteudo.sobre, pilares: newPil } })
                       }}
                     />
@@ -256,6 +321,15 @@ export default function GestaoConteudo() {
                 setConteudo({ ...conteudo, atividades: { ...conteudo.atividades, descricao: v } })
               }
             />
+            <div className="md:col-span-2">
+              <Input
+                label="URL da Imagem de Fundo (Seção Atividades)"
+                value={conteudo.atividades.imagemFundo || ''}
+                onChange={(v) =>
+                  setConteudo({ ...conteudo, atividades: { ...conteudo.atividades, imagemFundo: v } })
+                }
+              />
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -305,6 +379,15 @@ export default function GestaoConteudo() {
                         />
                       </div>
                     </div>
+                    <Input
+                      label="URL da Imagem da Atividade"
+                      value={atv.imagem || ''}
+                      onChange={(v) => {
+                        const newList = [...conteudo.atividades.lista]
+                        newList[i] = { ...newList[i], imagem: v }
+                        setConteudo({ ...conteudo, atividades: { ...conteudo.atividades, lista: newList } })
+                      }}
+                    />
                     <Textarea
                       label="Descrição detalhada do que é feito"
                       value={atv.descricao}
@@ -338,6 +421,15 @@ export default function GestaoConteudo() {
                 setConteudo({ ...conteudo, projetos: { ...conteudo.projetos, descricao: v } })
               }
             />
+            <div className="md:col-span-2">
+              <Input
+                label="URL da Imagem de Fundo (Seção Projetos)"
+                value={conteudo.projetos.imagemFundo || ''}
+                onChange={(v) =>
+                  setConteudo({ ...conteudo, projetos: { ...conteudo.projetos, imagemFundo: v } })
+                }
+              />
+            </div>
           </div>
 
           <div className="space-y-8">
@@ -370,6 +462,15 @@ export default function GestaoConteudo() {
                       onChange={(v) => {
                         const newList = [...conteudo.projetos.lista]
                         newList[i] = { ...newList[i], titulo: v }
+                        setConteudo({ ...conteudo, projetos: { ...conteudo.projetos, lista: newList } })
+                      }}
+                    />
+                    <Input
+                      label="URL da Imagem do Projeto"
+                      value={proj.imagem || ''}
+                      onChange={(v) => {
+                        const newList = [...conteudo.projetos.lista]
+                        newList[i] = { ...newList[i], imagem: v }
                         setConteudo({ ...conteudo, projetos: { ...conteudo.projetos, lista: newList } })
                       }}
                     />
@@ -426,6 +527,15 @@ export default function GestaoConteudo() {
                 setConteudo({ ...conteudo, contato: { ...conteudo.contato, titulo: v } })
               }
             />
+            <div className="md:col-span-2">
+              <Input
+                label="URL da Imagem de Fundo (Seção Contato)"
+                value={conteudo.contato.imagemFundo || ''}
+                onChange={(v) =>
+                  setConteudo({ ...conteudo, contato: { ...conteudo.contato, imagemFundo: v } })
+                }
+              />
+            </div>
             <div className="md:col-span-2">
               <Textarea
                 label="Texto de Apoio (Contato)"
