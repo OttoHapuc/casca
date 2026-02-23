@@ -41,3 +41,37 @@ model Projeto {
   resultados String
   criadoEm   DateTime @default(now())
 }
+
+model Certificacao {
+  id         String    @id @default(cuid())
+  titulo     String
+  imagemUrl  String
+  criadoEm   DateTime  @default(now())
+  deletadoEm DateTime?
+}
+
+model Cidade {
+  id         String    @id @default(cuid())
+  nome       String    @unique
+  criadoEm   DateTime  @default(now())
+  deletadoEm DateTime?
+  anexos     Anexo[]
+}
+
+model Anexo {
+  id            String    @id @default(cuid())
+  titulo        String
+  arquivoUrl    String
+  classificacao String
+  cidadeId      String
+  cidade        Cidade    @relation(fields: [cidadeId], references: [id], onDelete: Cascade)
+  criadoEm      DateTime  @default(now())
+  deletadoEm    DateTime?
+}
+
+model Classificacao {
+  id         String    @id @default(cuid())
+  nome       String    @unique
+  criadoEm   DateTime  @default(now())
+  deletadoEm DateTime?
+}

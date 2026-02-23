@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, FileText, Globe, LogOut } from 'lucide-react'
+import { LayoutDashboard, FileText, Globe, LogOut, Award, Paperclip } from 'lucide-react'
 
 import Image from 'next/image'
 
@@ -10,6 +10,8 @@ const navItems = [
     { name: 'Painel Geral', href: '/dashboard/admin', icon: LayoutDashboard },
     { name: 'Gestão de Conteúdo', href: '/dashboard/admin#conteudo', icon: Globe },
     { name: 'Transparência', href: '/dashboard/admin#transparencia', icon: FileText },
+    { name: 'Certificações', href: '/dashboard/admin#certificacoes', icon: Award },
+    { name: 'Anexos por Cidade', href: '/dashboard/admin#anexos', icon: Paperclip },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

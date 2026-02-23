@@ -4,14 +4,17 @@ import Principal from './components/page.home.principal'
 import Sobre from './components/page.home.sobre'
 import Atividades from './components/page.home.atividades'
 import Projetos from './components/page.home.projetos'
+import Certificacoes from './components/page.home.certificacoes'
 import Contato from './components/page.home.contato'
-import { buscarConteudoHome } from '../../../actions'
+import { buscarConteudoHome, buscarCertificacoes } from '../../../actions'
 import { TipoConteudoHome } from '@/types/app/home'
 
 export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
   const conteudo = await buscarConteudoHome()
+  const certResult = await buscarCertificacoes()
+  const certificacoes = certResult.sucesso ? certResult.dados : []
 
   // Dados iniciais (mock) caso o banco esteja vazio
   const dadosIniciais: TipoConteudoHome = conteudo || {
@@ -56,6 +59,7 @@ export default async function HomePage() {
     <main className="flex min-h-screen flex-col">
       <Cabecalho />
       <Principal {...dadosIniciais.hero} />
+      <Certificacoes lista={certificacoes} />
       <Sobre {...dadosIniciais.sobre} />
       <Atividades {...dadosIniciais.atividades} />
       <Projetos {...dadosIniciais.projetos} />
