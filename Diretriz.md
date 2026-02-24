@@ -146,10 +146,10 @@ Dentro do módulo, seguir:
 
 ### 5.2 Regras obrigatórias de banco (crucial)
 
-- **Toda rota deve iniciar conexão** com o banco.
-- **Ao finalizar deve fechar a conexão**.
-- É proibido deixar conexão aberta após response.
-- Preferir padronizar um helper (ex.: `withDb(...)`) para reduzir repetição e risco.
+- **O Prisma gerencia seu próprio pool de conexões** automaticamente.
+- **Não fechar a conexão via `$disconnect()` a cada requisição** para evitar erro "Engine is not yet connected" devido a concorrência e destruição de pool em ambiente serverless.
+- Utilizar a instância global (singleton) implementada no `src/lib/prisma.ts`.
+- É mantido o uso do helper `withDb(...)` como padrão arquitetural, mas internamente ele apenas reaproveita a conexão singleton ativa.
 
 ---
 
