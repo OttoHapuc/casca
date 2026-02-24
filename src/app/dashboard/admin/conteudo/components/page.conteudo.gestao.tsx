@@ -141,21 +141,21 @@ export default function GestaoConteudo() {
   )
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 bg-white/50 rounded-[3rem] p-4 sm:p-8 backdrop-blur-sm">
       {/* Botão de Salvar Flutuante ou fixo no topo da seção */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div className="flex items-center space-x-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-yellow/10 text-primary-yellow">
-            <Wand2 size={20} />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-yellow to-yellow-500 text-deep-charcoal shadow-lg shadow-primary-yellow/30">
+            <Wand2 size={24} />
           </div>
-          <h2 className="text-2xl font-black text-deep-charcoal uppercase tracking-tighter">
-            Gerenciador de <span className="text-primary-yellow">Conteúdo</span>
+          <h2 className="text-3xl font-black text-deep-charcoal uppercase tracking-tighter drop-shadow-sm">
+            Gerenciador de <span className="text-accent-blue">Conteúdo</span>
           </h2>
         </div>
         <button
           onClick={() => salvar()}
           disabled={salvando}
-          className="group flex items-center space-x-2 rounded-2xl bg-deep-charcoal px-8 py-4 font-black text-white shadow-xl transition-all hover:scale-[1.02] hover:bg-black active:scale-[0.98] disabled:opacity-50"
+          className="group flex items-center justify-center space-x-2 rounded-2xl bg-primary-yellow px-8 py-4 font-black text-deep-charcoal shadow-xl shadow-primary-yellow/20 transition-all hover:scale-[1.02] hover:bg-yellow-400 active:scale-[0.98] disabled:opacity-50"
         >
           <Save size={18} className={salvando ? 'animate-pulse' : ''} />
           <span>{salvando ? 'Salvando...' : 'Publicar Alterações'}</span>
@@ -258,7 +258,7 @@ export default function GestaoConteudo() {
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {conteudo.sobre.pilares.map((pil, i) => (
-                <div key={i} className="group relative rounded-3xl border border-deep-charcoal/5 bg-[#fcfcf7] p-6 shadow-inner transition-all hover:border-primary-yellow/30">
+                <div key={i} className="group relative rounded-3xl border border-grey-accent/10 bg-white p-6 shadow-sm transition-all hover:border-accent-blue/30 hover:shadow-md">
                   <button
                     type="button"
                     onClick={() => removePilar(i)}
@@ -346,7 +346,7 @@ export default function GestaoConteudo() {
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {conteudo.atividades.lista.map((atv, i) => (
-                <div key={atv.id} className="group relative rounded-3xl border border-deep-charcoal/5 bg-white p-8 shadow-sm transition-all hover:border-primary-yellow/30 hover:shadow-lg">
+                <div key={atv.id} className="group relative rounded-3xl border border-grey-accent/10 bg-white p-8 shadow-sm transition-all hover:border-accent-blue/30 hover:shadow-md">
                   <button
                     type="button"
                     onClick={() => removeAtividade(atv.id)}
@@ -445,8 +445,8 @@ export default function GestaoConteudo() {
               </button>
             </div>
             {conteudo.projetos.lista.map((proj, i) => (
-              <div key={proj.id} className="relative overflow-hidden rounded-[2.5rem] border border-deep-charcoal/5 bg-white p-10 shadow-sm transition-all hover:shadow-xl">
-                <div className="absolute top-0 right-0 h-1 w-full bg-primary-yellow/20" />
+              <div key={proj.id} className="relative overflow-hidden rounded-[2.5rem] border border-grey-accent/10 bg-white p-10 shadow-sm transition-all hover:shadow-lg hover:border-accent-blue/20">
+                <div className="absolute top-0 right-0 h-1 w-full bg-gradient-to-l from-primary-yellow via-accent-teal to-accent-blue opacity-80" />
                 <button
                   type="button"
                   onClick={() => removeProjeto(proj.id)}
@@ -568,12 +568,12 @@ export default function GestaoConteudo() {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="relative overflow-hidden rounded-[3rem] border border-white bg-white/60 p-12 shadow-2xl shadow-deep-charcoal/5 backdrop-blur-xl transition-all">
-      <div className="absolute top-0 left-0 h-full w-2 bg-primary-yellow/10" />
+    <div className="relative overflow-hidden rounded-[3rem] border border-white/50 bg-white/80 p-6 sm:p-12 shadow-xl shadow-grey-accent/5 backdrop-blur-md transition-all">
+      <div className="absolute top-0 left-0 h-full w-2 bg-gradient-to-b from-primary-yellow to-accent-blue" />
       <h3 className="mb-10 flex items-center text-xl font-black text-deep-charcoal uppercase tracking-widest">
-        <span className="mr-4 h-px flex-1 bg-deep-charcoal/5" />
-        {title}
-        <span className="ml-4 h-px flex-1 bg-deep-charcoal/5" />
+        <span className="mr-4 h-px flex-1 bg-gradient-to-r from-transparent to-grey-accent/20" />
+        <span className="bg-gradient-to-r from-deep-charcoal to-grey-accent bg-clip-text text-transparent">{title}</span>
+        <span className="ml-4 h-px flex-1 bg-gradient-to-l from-transparent to-grey-accent/20" />
       </h3>
       <div className="relative z-10">{children}</div>
     </div>
@@ -583,10 +583,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Input({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
   return (
     <div className="space-y-2.5">
-      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-grey-accent">{label}</label>
+      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-blue">{label}</label>
       <input
         type="text"
-        className="w-full rounded-2xl border border-deep-charcoal/5 bg-light-cream/30 px-5 py-4 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-primary-yellow focus:bg-white focus:shadow-lg focus:shadow-primary-yellow/5"
+        className="w-full rounded-2xl border border-grey-accent/20 bg-white px-5 py-4 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 focus:shadow-lg"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
@@ -597,9 +597,9 @@ function Input({ label, value, onChange }: { label: string; value: string; onCha
 function Textarea({ label, value, onChange }: { label?: string; value: string; onChange: (v: string) => void }) {
   return (
     <div className="space-y-2.5">
-      {label && <label className="text-[10px] font-black uppercase tracking-[0.2em] text-grey-accent">{label}</label>}
+      {label && <label className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-blue">{label}</label>}
       <textarea
-        className="block min-h-[120px] w-full rounded-2xl border border-deep-charcoal/5 bg-light-cream/30 px-5 py-4 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-primary-yellow focus:bg-white focus:shadow-lg focus:shadow-primary-yellow/5"
+        className="block min-h-[120px] w-full rounded-2xl border border-grey-accent/20 bg-white px-5 py-4 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 focus:shadow-lg"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

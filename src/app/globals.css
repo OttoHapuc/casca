@@ -2,23 +2,34 @@
 
 @theme {
   --color-primary-yellow: #f7ed4a;
-  --color-deep-charcoal: #232323;
-  --color-light-cream: #f9f6da;
-  --color-grey-accent: #767676;
+  --color-deep-charcoal: #334155;
+  /* Changed from heavy #232323 to slate-700 */
+  --color-light-cream: #f8fafc;
+  /* Lighter slate-50 cream */
+  --color-grey-accent: #64748b;
+  /* Lighter slate-500 */
+
+  /* Additional vibrant colors */
+  --color-accent-blue: #3b82f6;
+  --color-accent-teal: #14b8a6;
+  --color-accent-rose: #f43f5e;
+  --color-accent-purple: #8b5cf6;
 
   --font-lato: var(--font-lato);
   --font-rubik: var(--font-rubik);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #232323;
+  --background: #f8fafc;
+  /* Very light slate background */
+  --foreground: #334155;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #232323;
-    --foreground: #ffffff;
+    --background: #ffffff;
+    /* Override dark mode to keep it light/colorful as requested */
+    --foreground: #334155;
   }
 }
 

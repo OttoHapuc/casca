@@ -185,19 +185,19 @@ export default function GestaoAnexos() {
     }
 
     return (
-        <div className="space-y-12">
+        <div className="space-y-12 bg-white/50 rounded-[3rem] p-4 sm:p-8 backdrop-blur-sm">
             {/* Header */}
             <div className="flex items-center space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-yellow/10 text-primary-yellow">
-                    <Paperclip size={20} />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-yellow to-yellow-500 text-deep-charcoal shadow-lg shadow-primary-yellow/30">
+                    <Paperclip size={24} />
                 </div>
-                <h2 className="text-2xl font-black text-deep-charcoal uppercase tracking-tighter">
-                    Gestão de <span className="text-primary-yellow">Anexos</span>
+                <h2 className="text-3xl font-black text-deep-charcoal uppercase tracking-tighter drop-shadow-sm">
+                    Gestão de <span className="text-accent-blue">Anexos</span>
                 </h2>
             </div>
 
             {mensagem && (
-                <div className={`rounded-2xl p-4 text-sm font-bold ${mensagem.erro ? 'bg-red-50 text-red-600' : 'bg-green-50 text-green-700'}`}>
+                <div className={`rounded-2xl p-4 text-sm font-bold shadow-sm ${mensagem.erro ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-green-50 text-green-700 border border-green-100'}`}>
                     {mensagem.texto}
                 </div>
             )}
@@ -206,7 +206,7 @@ export default function GestaoAnexos() {
             <div className="grid gap-8 lg:grid-cols-2">
 
                 {/* Cities */}
-                <Panel icon={<MapPin size={16} className="text-primary-yellow" />} titulo="Gerenciar Cidades">
+                <Panel icon={<MapPin size={20} className="text-accent-blue" />} titulo="Gerenciar Cidades">
                     <form onSubmit={adicionarCidade} className="mb-6 flex gap-3">
                         <input
                             type="text" value={nomeCidade} onChange={(e) => setNomeCidade(e.target.value)}
@@ -224,7 +224,7 @@ export default function GestaoAnexos() {
                 </Panel>
 
                 {/* Classifications */}
-                <Panel icon={<Tag size={16} className="text-primary-yellow" />} titulo="Gerenciar Classificações">
+                <Panel icon={<Tag size={20} className="text-accent-rose" />} titulo="Gerenciar Classificações">
                     <form onSubmit={adicionarClassificacao} className="mb-6 flex gap-3">
                         <input
                             type="text" value={nomeClassificacao} onChange={(e) => setNomeClassificacao(e.target.value)}
@@ -243,7 +243,7 @@ export default function GestaoAnexos() {
             </div>
 
             {/* Row 2: Add Document form */}
-            <Panel icon={<Paperclip size={16} className="text-primary-yellow" />} titulo="Adicionar Documento">
+            <Panel icon={<Paperclip size={20} className="text-primary-yellow" />} titulo="Adicionar Documento" highlight={true}>
                 <form onSubmit={adicionarAnexo} className="grid gap-5 md:grid-cols-2">
                     <Input label="Título do Documento" placeholder="Ex: Ata da Reunião Jan/2024"
                         value={formAnexo.titulo} onChange={(v) => setFormAnexo({ ...formAnexo, titulo: v })} required />
@@ -266,7 +266,7 @@ export default function GestaoAnexos() {
                     <div className="md:col-span-2">
                         <button
                             type="submit" disabled={salvandoAnexo}
-                            className="flex w-full items-center justify-center space-x-2 rounded-2xl bg-primary-yellow py-4 font-black text-deep-charcoal shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50"
+                            className="flex w-full items-center justify-center space-x-2 rounded-2xl bg-primary-yellow py-4 font-black text-deep-charcoal shadow-lg shadow-primary-yellow/20 transition-all hover:scale-[1.02] hover:bg-yellow-400 active:scale-[0.98] disabled:opacity-50"
                         >
                             <Plus size={18} />
                             <span>{salvandoAnexo ? 'Adicionando...' : 'Adicionar Documento'}</span>
@@ -277,16 +277,18 @@ export default function GestaoAnexos() {
 
             {/* Row 3: All Documents — filtered + paginated */}
             <div className="space-y-4">
-                <h3 className="text-xs font-black uppercase tracking-widest text-primary-yellow">Todos os Documentos</h3>
-                {carregando ? (
-                    <p className="text-sm text-grey-accent italic">Carregando documentos...</p>
-                ) : (
-                    <DocumentosFiltrados
-                        anexos={anexos}
-                        comAcoes
-                        onExcluir={excluirAnexo}
-                    />
-                )}
+                <h3 className="text-xs font-black uppercase tracking-widest text-accent-blue ml-2">Todos os Documentos</h3>
+                <div className="bg-white rounded-[2.5rem] p-6 shadow-sm border border-grey-accent/10">
+                    {carregando ? (
+                        <p className="text-sm text-grey-accent italic p-4">Carregando documentos...</p>
+                    ) : (
+                        <DocumentosFiltrados
+                            anexos={anexos}
+                            comAcoes
+                            onExcluir={excluirAnexo}
+                        />
+                    )}
+                </div>
             </div>
         </div>
     )
@@ -294,12 +296,12 @@ export default function GestaoAnexos() {
 
 // ── Sub-components ──────────────────────────────────────────────────────────
 
-const inputClass = 'flex-1 rounded-2xl border border-deep-charcoal/5 bg-light-cream/30 px-5 py-3 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-primary-yellow focus:bg-white'
+const inputClass = 'flex-1 rounded-2xl border border-grey-accent/20 bg-white px-5 py-3 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 focus:shadow-lg'
 
-function Panel({ icon, titulo, children }: { icon: React.ReactNode; titulo: string; children: React.ReactNode }) {
+function Panel({ icon, titulo, children, highlight = false }: { icon: React.ReactNode; titulo: string; children: React.ReactNode; highlight?: boolean }) {
     return (
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white bg-white/60 p-8 shadow-2xl shadow-deep-charcoal/5 backdrop-blur-xl">
-            <div className="absolute top-0 left-0 h-full w-1.5 bg-primary-yellow/20" />
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/50 bg-white/80 p-8 shadow-xl shadow-grey-accent/5 backdrop-blur-md">
+            <div className={`absolute top-0 left-0 h-full w-2 ${highlight ? 'bg-gradient-to-b from-primary-yellow to-accent-blue' : 'bg-primary-yellow/30'}`} />
             <div className="mb-6 flex items-center gap-3">
                 {icon}
                 <h3 className="text-sm font-black uppercase tracking-widest text-deep-charcoal">{titulo}</h3>
@@ -312,7 +314,7 @@ function Panel({ icon, titulo, children }: { icon: React.ReactNode; titulo: stri
 function BtnAdd({ loading }: { loading: boolean }) {
     return (
         <button type="submit" disabled={loading}
-            className="flex items-center gap-2 rounded-2xl bg-primary-yellow px-5 py-3 text-xs font-black text-deep-charcoal shadow-lg transition-all hover:scale-[1.02] disabled:opacity-50"
+            className="flex items-center gap-2 rounded-2xl bg-primary-yellow px-5 py-3 text-xs font-black text-deep-charcoal shadow-lg shadow-primary-yellow/20 transition-all hover:scale-[1.02] disabled:opacity-50"
         >
             <Plus size={16} />
             {loading ? '...' : 'Adicionar'}
@@ -331,13 +333,13 @@ function TagList({ items, onDelete, vazio, carregando }: {
     return (
         <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
             {items.map((item) => (
-                <div key={item.id} className="flex items-center justify-between rounded-2xl bg-light-cream/40 px-5 py-3">
+                <div key={item.id} className="group flex items-center justify-between rounded-2xl bg-light-cream/50 px-5 py-3 border border-grey-accent/5 transition-all hover:border-accent-blue/20 hover:bg-white hover:shadow-sm">
                     <div>
-                        <span className="text-sm font-black text-deep-charcoal">{item.nome}</span>
+                        <span className="text-sm font-black text-deep-charcoal group-hover:text-accent-blue transition-colors">{item.nome}</span>
                         {item.extra && <span className="ml-3 text-[10px] font-bold text-grey-accent">{item.extra}</span>}
                     </div>
                     <button onClick={() => onDelete(item.id)}
-                        className="flex h-8 w-8 items-center justify-center rounded-lg text-grey-accent transition-all hover:bg-red-50 hover:text-red-600"
+                        className="flex h-8 w-8 items-center justify-center rounded-xl text-grey-accent transition-all hover:bg-red-50 hover:text-red-600 hover:border hover:border-red-100"
                     >
                         <Trash2 size={14} />
                     </button>
@@ -351,11 +353,11 @@ function Input({ label, value, onChange, placeholder, required }: {
     label: string; value: string; onChange: (v: string) => void; placeholder?: string; required?: boolean
 }) {
     return (
-        <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-grey-accent">{label}</label>
+        <div className="space-y-2.5">
+            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-blue">{label}</label>
             <input type="text" value={value} required={required} placeholder={placeholder}
                 onChange={(e) => onChange(e.target.value)}
-                className="w-full rounded-2xl border border-deep-charcoal/5 bg-light-cream/30 px-5 py-3.5 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/30 focus:border-primary-yellow focus:bg-white focus:shadow-lg focus:shadow-primary-yellow/5"
+                className="w-full rounded-2xl border border-grey-accent/20 bg-white px-5 py-4 text-sm font-bold text-deep-charcoal outline-none transition-all placeholder:text-grey-accent/40 focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 focus:shadow-lg"
             />
         </div>
     )
@@ -366,11 +368,11 @@ function Select({ label, value, onChange, placeholder, options }: {
     options: { value: string; label: string }[]
 }) {
     return (
-        <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-grey-accent">{label}</label>
+        <div className="space-y-2.5">
+            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-blue">{label}</label>
             <div className="relative">
                 <select value={value} onChange={(e) => onChange(e.target.value)} required
-                    className="w-full appearance-none rounded-2xl border border-deep-charcoal/5 bg-light-cream/30 px-5 py-3.5 text-sm font-bold text-deep-charcoal outline-none transition-all focus:border-primary-yellow focus:bg-white"
+                    className="w-full appearance-none rounded-2xl border border-grey-accent/20 bg-white px-5 py-4 text-sm font-bold text-deep-charcoal outline-none transition-all focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 focus:shadow-lg"
                 >
                     <option value="">{placeholder}</option>
                     {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}

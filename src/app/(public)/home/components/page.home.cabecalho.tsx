@@ -27,7 +27,7 @@ export default function Cabecalho() {
   return (
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${rolou || isMobileMenuOpen
-        ? 'bg-deep-charcoal/90 py-4 shadow-2xl backdrop-blur-xl'
+        ? 'bg-white/90 py-4 shadow-xl backdrop-blur-xl border-b border-light-cream'
         : 'bg-transparent py-8'
         }`}
     >
@@ -38,7 +38,7 @@ export default function Cabecalho() {
             alt="C.A.S.C.A. Logo"
             width={180}
             height={60}
-            className="h-14 w-auto drop-shadow-lg rounded-full transition-transform duration-300 group-hover:scale-110"
+            className="h-14 w-auto drop-shadow-sm rounded-full transition-transform duration-300 group-hover:scale-110"
             priority
           />
         </Link>
@@ -49,15 +49,15 @@ export default function Cabecalho() {
             <Link
               key={item.nome}
               href={item.href}
-              className="rounded-full px-5 py-2 text-sm font-bold text-white/70 transition-all hover:bg-white/10 hover:text-white"
+              className={`rounded-full px-5 py-2 text-sm font-bold transition-all ${rolou ? 'text-deep-charcoal hover:bg-light-cream hover:text-accent-blue' : 'text-deep-charcoal/80 hover:bg-white/50 hover:text-accent-blue'}`}
             >
               {item.nome}
             </Link>
           ))}
-          <div className="ml-4 h-6 w-px bg-white/10" />
+          <div className={`ml-4 h-6 w-px ${rolou ? 'bg-grey-accent/20' : 'bg-deep-charcoal/10'}`} />
           <Link
             href="mailto:contato@casca.tatyverri.com"
-            className="ml-4 rounded-full bg-primary-yellow px-6 py-2.5 text-sm font-black text-deep-charcoal transition-all hover:scale-105 active:scale-95"
+            className="ml-4 rounded-full bg-primary-yellow px-6 py-2.5 text-sm font-black text-deep-charcoal shadow-sm transition-all hover:scale-105 hover:shadow-md hover:shadow-primary-yellow/30 active:scale-95"
           >
             Fale Conosco
           </Link>
@@ -65,7 +65,7 @@ export default function Cabecalho() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="text-white md:hidden"
+          className={`md:hidden ${rolou ? 'text-deep-charcoal' : 'text-deep-charcoal/80'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
@@ -75,22 +75,22 @@ export default function Cabecalho() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="absolute left-0 top-full w-full bg-deep-charcoal/95 border-t border-white/10 shadow-2xl backdrop-blur-xl md:hidden">
+        <div className="absolute left-0 top-full w-full bg-white/95 border-b border-light-cream shadow-2xl backdrop-blur-xl md:hidden">
           <div className="flex flex-col space-y-4 px-6 py-8">
             {itensNavegacao.map((item) => (
               <Link
                 key={item.nome}
                 href={item.href}
-                className="text-lg font-bold text-white/80 transition-colors hover:text-white"
+                className="text-lg font-bold text-deep-charcoal/80 transition-colors hover:text-accent-blue"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.nome}
               </Link>
             ))}
-            <div className="my-4 h-px w-full bg-white/10" />
+            <div className="my-4 h-px w-full bg-grey-accent/10" />
             <Link
               href="mailto:contato@casca.tatyverri.com"
-              className="mt-2 w-full rounded-2xl bg-primary-yellow py-4 text-center text-lg font-black text-deep-charcoal transition-all active:scale-95"
+              className="mt-2 w-full rounded-2xl bg-primary-yellow py-4 text-center text-lg font-black text-deep-charcoal shadow-sm transition-all active:scale-95"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Fale Conosco

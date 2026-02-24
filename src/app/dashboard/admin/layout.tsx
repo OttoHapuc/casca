@@ -18,9 +18,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const pathname = usePathname()
 
     return (
-        <div className="flex min-h-screen bg-[#fcfcf7] font-lato">
+        <div className="flex min-h-screen bg-light-cream font-lato">
             {/* Sidebar */}
-            <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-deep-charcoal transition-all duration-300">
+            <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-deep-charcoal transition-all duration-300 shadow-2xl shadow-deep-charcoal/20">
                 <div className="flex h-full flex-col p-8">
                     <div className="mb-12">
                         <Link href="/home" className="flex flex-col space-y-2 items-center">
@@ -29,9 +29,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                 alt="C.A.S.C.A. Logo"
                                 width={160}
                                 height={60}
-                                className="w-24 drop-shadow-md rounded-full transition-transform duration-300 hover:scale-105 text-primary-yellow"
+                                className="w-24 drop-shadow-md rounded-full transition-transform duration-300 hover:scale-105"
                             />
-                            <span className="w-fit rounded-md bg-white/5 px-2 py-1 text-[10px] font-black uppercase text-white/40">
+                            <span className="w-fit rounded-md bg-white/10 px-2 py-1 text-[10px] font-black uppercase text-white/50 tracking-widest">
                                 Painel Administrativo
                             </span>
                         </Link>
@@ -45,18 +45,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                     key={item.name}
                                     href={item.href}
                                     className={`flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold transition-all ${isActive
-                                        ? 'bg-primary-yellow text-deep-charcoal'
-                                        : 'text-white/60 hover:bg-white/5 hover:text-white'
+                                        ? 'bg-gradient-to-r from-primary-yellow to-yellow-500 text-deep-charcoal shadow-md shadow-primary-yellow/10'
+                                        : 'text-white/60 hover:bg-white/10 hover:text-white'
                                         }`}
                                 >
-                                    <item.icon size={20} />
+                                    <item.icon size={20} className={isActive ? 'text-deep-charcoal' : 'text-grey-accent'} />
                                     <span>{item.name}</span>
                                 </Link>
                             )
                         })}
                     </nav>
 
-                    <button className="mt-auto flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold text-red-400/60 transition-all hover:bg-red-400/5 hover:text-red-400">
+                    <button className="mt-auto flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold text-red-300 transition-all hover:bg-red-500/10 hover:text-red-400">
                         <LogOut size={20} />
                         <span>Sair do Painel</span>
                     </button>
@@ -64,33 +64,35 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </aside>
 
             {/* Main Content */}
-            <main className="ml-72 flex-1 p-12">
-                <header className="mb-12 flex items-center justify-between">
+            <main className="ml-72 flex-1 p-12 relative overflow-hidden">
+                {/* Decorative background orbs */}
+                <div className="absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-accent-blue/5 blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-primary-yellow/5 blur-[100px] pointer-events-none" />
+
+                <header className="mb-12 flex items-center justify-between relative z-10">
                     <div>
                         <h1 className="text-3xl font-black text-deep-charcoal uppercase tracking-tight">
-                            Dashboard <span className="text-primary-yellow">Admin</span>
+                            Dashboard <span className="bg-gradient-to-r from-primary-yellow to-yellow-500 bg-clip-text text-transparent">Admin</span>
                         </h1>
-                        <p className="text-sm font-medium text-grey-accent">
+                        <p className="text-sm font-medium text-grey-accent mt-1">
                             Gerencie o conteúdo e a transparência da instituição.
                         </p>
                     </div>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-3xl border border-grey-accent/10 shadow-sm">
                         <div className="text-right">
                             <div className="text-sm font-black text-deep-charcoal">Administrador</div>
-                            <div className="text-xs font-bold text-grey-accent capitalize">Nível Acesso Total</div>
+                            <div className="text-xs font-bold text-accent-blue uppercase tracking-widest">Acesso Total</div>
                         </div>
-                        <div className="h-12 w-12 rounded-2xl bg-primary-yellow p-0.5 shadow-lg">
-                            <div className="flex h-full w-full items-center justify-center rounded-[0.8rem] bg-deep-charcoal text-lg font-black text-white">
+                        <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary-yellow to-yellow-400 p-0.5 shadow-lg shadow-primary-yellow/20">
+                            <div className="flex h-full w-full items-center justify-center rounded-[0.8rem] bg-white text-lg font-black text-deep-charcoal">
                                 A
                             </div>
                         </div>
                     </div>
                 </header>
 
-                <div className="relative">
-                    {/* Decorative background orbs */}
-                    <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-primary-yellow/5 blur-[100px]" />
-                    <div className="relative z-10">{children}</div>
+                <div className="relative z-10">
+                    {children}
                 </div>
             </main>
         </div>
