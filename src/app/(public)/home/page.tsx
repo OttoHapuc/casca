@@ -1,4 +1,3 @@
-
 import Cabecalho from './components/page.home.cabecalho'
 import Principal from './components/page.home.principal'
 import Sobre from './components/page.home.sobre'
@@ -8,6 +7,8 @@ import Certificacoes from './components/page.home.certificacoes'
 import Contato from './components/page.home.contato'
 import { buscarConteudoHome, buscarCertificacoes } from '../../../actions'
 import { TipoConteudoHome } from '@/types/app/home'
+import Image from 'next/image'
+import { MapPin, Mail, Facebook, Instagram, Phone } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -65,11 +66,70 @@ export default async function HomePage() {
       <Projetos {...dadosIniciais.projetos} />
       <Contato {...dadosIniciais.contato} />
 
-      <footer className="border-grey-accent/10 border-t py-12">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-grey-accent text-sm font-medium">
+      <footer className="text-deep-charcoal mt-16 py-16" style={{ backgroundColor: '#ffe60033' }}>
+        <div className="container mx-auto flex flex-col items-center space-y-10 px-6">
+          <div className="flex flex-col items-center space-y-4">
+            <div className="shadow-deep-charcoal/15 flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-xl">
+              <Image
+                src="/logo2.jpg"
+                alt="C.A.S.C.A"
+                width={150}
+                height={150}
+                className="h-24 w-24 rounded-full object-cover"
+              />
+            </div>
+            <p className="text-deep-charcoal text-xs font-black tracking-[0.35em] uppercase">
+              C.A.S.C.A
+            </p>
+            <p className="max-w-xl text-center text-sm leading-snug font-black uppercase sm:text-base">
+              Centro de Atendimento Social à Criança e ao Adolescente
+            </p>
+          </div>
+
+          <div className="flex w-full flex-wrap items-center justify-center gap-10">
+            <div className="flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium">
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                <MapPin size={20} />
+              </div>
+              <span>
+                Bom Jesus, 61 - Centro
+                <br />
+                Tremembé/SP.
+              </span>
+            </div>
+
+            <div className="flex max-w-[200px] flex-col items-center space-y-3 text-center text-sm font-medium">
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                <Mail size={20} />
+              </div>
+              <span>cascafamilia@yahoo.com.br</span>
+            </div>
+
+            <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                <Facebook size={20} />
+              </div>
+              <span>ong.casca</span>
+            </div>
+
+            <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                <Instagram size={20} />
+              </div>
+              <span>ong.casca</span>
+            </div>
+
+            <div className="flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium">
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                <Phone size={20} />
+              </div>
+              <span>(12) 3674-1284</span>
+            </div>
+          </div>
+
+          <div className="text-deep-charcoal/80 mt-4 w-full border-t border-yellow-300/50 pt-6 text-center text-xs font-medium">
             &copy; {new Date().getFullYear()} C.A.S.C.A. Todos os direitos reservados.
-          </p>
+          </div>
         </div>
       </footer>
     </main>
