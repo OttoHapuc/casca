@@ -42,8 +42,8 @@ export async function salvarOuvidoriaConfig(config: TipoOuvidoriaConfig): Promis
 
       await prisma.conteudo.upsert({
         where: { slug: 'principal' },
-        update: { dados: dadosAtualizados },
-        create: { slug: 'principal', dados: dadosAtualizados },
+        update: { dados: dadosAtualizados as any },
+        create: { slug: 'principal', dados: dadosAtualizados as any },
       })
 
       return {

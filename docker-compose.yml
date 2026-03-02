@@ -1,4 +1,48 @@
 services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - inscricoes-creche
+    networks:
+      - app_network
+
+  inscricoes-creche:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    # ports:
+    #   - '3000:3000' # Exposto apenas internamente via rede
+    env_file:
+      - .env
+    networks:
+      - app_network
+    environment:
+      - NODE_ENV=production
+      # Defina os domínios aqui para o middleware identificar
+      - DOMINIO_INSTITUCIONAL=educacao.local
+      - DOMINIO_INSCRICOES=inscricoes.local
+    depends_on:
+      - postgres
+
+  # Serviço efêmero para rodar migrações e seeds sem sujar o container principal
+  # Usa o target 'builder' que contém todas as dependências (incluindo devDependencies como prisma CLI)
+  migrator:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: builder
+    command: echo "Container de migração pronto. Use 'make migrate' ou 'make seed'."
+    env_file:
+      - .env
+    networks:
+      - app_network
+    profiles:
+      - tools # Não sobe automaticamente com 'docker compose up'
+
   postgres:
     image: postgres:17
     container_name: casca-db
@@ -7,10 +51,14 @@ services:
       POSTGRES_PASSWORD: randompassword
       POSTGRES_DB: mydb
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
 
 volumes:
   postgres_data:
+
+networks:
+  app_network:
+    driver: bridge

@@ -9,35 +9,35 @@ export default function Sobre({ titulo, paragrafos, pilares, imagemDestaque }: T
       'bg-primary-yellow text-deep-charcoal border border-primary-yellow/50',
       'bg-gradient-to-br from-accent-blue/10 to-transparent text-deep-charcoal border border-accent-blue/20',
       'bg-gradient-to-br from-accent-teal/10 to-transparent text-deep-charcoal border border-accent-teal/20',
-      'bg-gradient-to-br from-accent-rose/10 to-transparent text-deep-charcoal border border-accent-rose/20'
+      'bg-gradient-to-br from-accent-rose/10 to-transparent text-deep-charcoal border border-accent-rose/20',
     ]
     return cores[idx % cores.length]
   }
 
   return (
-    <section id="sobre" className="bg-light-cream relative py-32 overflow-hidden">
+    <section id="sobre" className="bg-light-cream relative overflow-hidden py-32">
       {/* Decorative Orbs */}
-      <div className="absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-accent-rose/5 blur-[80px]" />
-      <div className="absolute bottom-0 left-0 h-80 w-80 translate-y-1/2 -translate-x-1/2 rounded-full bg-accent-blue/5 blur-[100px]" />
+      <div className="bg-accent-rose/5 absolute top-0 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px]" />
+      <div className="bg-accent-blue/5 absolute bottom-0 left-0 h-80 w-80 -translate-x-1/2 translate-y-1/2 rounded-full blur-[100px]" />
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="relative z-10 container mx-auto px-6">
         <div className="flex flex-col gap-16 lg:flex-row lg:items-center">
           <div className="lg:w-1/2">
-            <span className="mb-4 inline-block text-sm font-black tracking-widest text-[#d97706] bg-primary-yellow/20 px-4 py-1.5 rounded-full uppercase border border-primary-yellow/30">
+            <span className="bg-primary-yellow/20 border-primary-yellow/30 mb-4 inline-block rounded-full border px-4 py-1.5 text-sm font-black tracking-widest text-[#d97706] uppercase">
               Quem Somos
             </span>
-            <h2 className="mb-8 text-3xl sm:text-4xl font-black leading-tight text-deep-charcoal md:text-5xl break-words">
+            <h2 className="text-deep-charcoal mb-8 text-3xl leading-tight font-black break-words sm:text-4xl md:text-5xl">
               {titulo}
             </h2>
             <div className="space-y-6">
               {paragrafos.map((p, idx) => (
-                <p key={idx} className="text-lg font-medium leading-relaxed text-grey-accent">
+                <p key={idx} className="text-grey-accent text-lg leading-relaxed font-medium">
                   {p}
                 </p>
               ))}
             </div>
             {imagemDestaque && (
-              <div className="mt-12 overflow-hidden rounded-[2.5rem] shadow-xl ring-1 ring-deep-charcoal/5 transition-transform hover:scale-[1.02]">
+              <div className="ring-deep-charcoal/5 mt-12 overflow-hidden rounded-[2.5rem] shadow-xl ring-1 transition-transform hover:scale-[1.02]">
                 <img
                   src={imagemDestaque}
                   alt="Destaque C.A.S.C.A"
@@ -49,7 +49,7 @@ export default function Sobre({ titulo, paragrafos, pilares, imagemDestaque }: T
 
           <div className="flex flex-col gap-12 lg:w-1/2">
             {imagemDestaque && (
-              <div className="hidden overflow-hidden rounded-[3rem] shadow-2xl ring-1 ring-deep-charcoal/5 transition-transform hover:scale-[1.02] lg:block">
+              <div className="ring-deep-charcoal/5 hidden overflow-hidden rounded-[3rem] shadow-2xl ring-1 transition-transform hover:scale-[1.02] lg:block">
                 <img
                   src={imagemDestaque}
                   alt="Destaque C.A.S.C.A"
@@ -72,9 +72,11 @@ export default function Sobre({ titulo, paragrafos, pilares, imagemDestaque }: T
                       />
                     </div>
                   )}
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="mb-3 text-2xl font-black uppercase tracking-tight">{pilar.titulo}</div>
-                    <p className="text-base font-medium opacity-80 mt-auto">{pilar.desc}</p>
+                  <div className="relative z-10 flex h-full flex-col">
+                    <div className="mb-3 text-2xl font-black tracking-tight uppercase">
+                      {pilar.titulo}
+                    </div>
+                    <p className="mt-auto text-base font-medium opacity-80">{pilar.desc}</p>
                   </div>
                 </div>
               ))}
