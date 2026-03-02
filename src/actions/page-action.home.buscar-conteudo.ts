@@ -11,9 +11,14 @@ export async function buscarConteudoHome(): Promise<TipoConteudoHome | null> {
       where: { slug: 'principal' },
     })
 
-    // Se não existir, retornamos um mock inicial para não quebrar a tela
-    if (!conteudo) return null
+    if (!conteudo || !conteudo.dados) return null
 
-    return conteudo.dados as unknown as TipoConteudoHome
+    const dados = conteudo.dados as TipoConteudoHome
+
+    if (!dados.hero || !dados.sobre || !dados.atividades || !dados.projetos || !dados.contato) {
+      return null
+    }
+
+    return dados
   })
 }

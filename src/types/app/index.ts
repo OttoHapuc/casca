@@ -1,3 +1,6 @@
 export * from './home'
 export * from './transparencia'
 export * from './admin'
+export * from './certificacoes'
+export * from './anexos'
+export * from './ouvidoria'
