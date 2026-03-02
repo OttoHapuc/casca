@@ -10,6 +10,7 @@ const itensNavegacao = [
   { nome: 'Atividades', href: '/home#atividades' },
   { nome: 'Projetos', href: '/home#projetos' },
   { nome: 'Transparência', href: '/transparencia' },
+  { nome: 'Ouvidoria', href: '/ouvidoria' },
 ]
 
 export default function Cabecalho() {

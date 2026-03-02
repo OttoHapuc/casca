@@ -46,24 +46,30 @@ export default function Principal({ badge, titulo, subtitulo, imagemFundo }: Tip
             {subtitulo}
           </p>
 
-          <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:flex-wrap sm:justify-center sm:space-y-0 sm:space-x-4">
             <a
               href="#sobre"
-              className="bg-primary-yellow text-deep-charcoal hover:shadow-primary-yellow/30 w-full rounded-2xl px-10 py-5 text-lg font-black transition-all hover:scale-105 hover:shadow-xl active:scale-95 sm:w-auto"
+              className="bg-primary-yellow text-deep-charcoal hover:shadow-primary-yellow/30 w-full max-w-xs rounded-2xl px-8 py-4 text-base font-black transition-all hover:scale-105 hover:shadow-xl active:scale-95 sm:w-auto"
             >
               Conheça Nossa História
             </a>
             <a
               href="/transparencia"
-              className="border-deep-charcoal/10 text-deep-charcoal hover:border-deep-charcoal/20 hover:bg-light-cream w-full rounded-2xl border-2 bg-white px-10 py-5 text-lg font-black shadow-sm transition-all hover:shadow-md sm:w-auto"
+              className="border-deep-charcoal/10 text-deep-charcoal hover:border-deep-charcoal/20 hover:bg-light-cream w-full max-w-xs rounded-2xl border-2 bg-white px-8 py-4 text-base font-black shadow-sm transition-all hover:shadow-md sm:w-auto"
             >
               Transparência
+            </a>
+            <a
+              href="/ouvidoria"
+              className="border-primary-yellow/70 text-deep-charcoal hover:border-primary-yellow hover:bg-primary-yellow/20 w-full max-w-xs rounded-2xl border-2 bg-white px-8 py-4 text-base font-black shadow-sm transition-all hover:shadow-md sm:w-auto"
+            >
+              Ouvidoria
             </a>
             <a
               href="https://treinamentos.casca.ong.br/"
               target="_blank"
               rel="noreferrer"
-              className="bg-primary-yellow text-deep-charcoal hover:shadow-primary-yellow/30 w-full rounded-2xl px-10 py-5 text-lg font-black transition-all hover:scale-105 hover:shadow-xl active:scale-95 sm:w-auto"
+              className="bg-primary-yellow text-deep-charcoal hover:shadow-primary-yellow/30 w-full max-w-xs rounded-2xl px-8 py-4 text-base font-black transition-all hover:scale-105 hover:shadow-xl active:scale-95 sm:w-auto"
             >
               Treinamentos
             </a>

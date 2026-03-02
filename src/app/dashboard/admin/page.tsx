@@ -1,7 +1,7 @@
-import GestaoRelatorios from './relatorios/components/page.relatorios.gestao'
 import GestaoConteudo from './conteudo/components/page.conteudo.gestao'
 import GestaoCertificacoes from './certificacoes/components/page.certificacoes.gestao'
 import GestaoAnexos from './anexos/components/page.anexos.gestao'
+import GestaoOuvidoria from './ouvidoria/components/page.ouvidoria.gestao'
 
 export default function AdminDashboardPage() {
   return (
@@ -14,12 +14,12 @@ export default function AdminDashboardPage() {
         <GestaoCertificacoes />
       </section>
 
-      {/* <section id="transparencia" className="scroll-mt-32">
-        <GestaoRelatorios />
-      </section> */}
-
       <section id="anexos" className="scroll-mt-32">
         <GestaoAnexos />
+      </section>
+
+      <section id="ouvidoria" className="scroll-mt-32">
+        <GestaoOuvidoria />
       </section>
     </div>
   )
