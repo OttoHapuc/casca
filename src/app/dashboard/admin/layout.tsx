@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
+
 import {
   LayoutDashboard,
   FileText,
@@ -10,9 +12,11 @@ import {
   Award,
   Paperclip,
   MessageCircle,
+  Lock,
 } from 'lucide-react'
 
 import Image from 'next/image'
+import { validarSenhaAdmin, verificarAcesso, sairPainelAdmin } from '@/actions/page-action.admin.auth'
 
 const navItems = [
   { name: 'Painel Geral', href: '/dashboard/admin', icon: LayoutDashboard },
@@ -25,6 +29,91 @@ const navItems = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
+
+  const [autenticado, setAutenticado] = useState<boolean | null>(null)
+  const [senha, setSenha] = useState('')
+  const [erro, setErro] = useState('')
+  const [carregando, setCarregando] = useState(false)
+
+  useEffect(() => {
+    verificarAcesso().then(setAutenticado)
+  }, [])
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setCarregando(true)
+    setErro('')
+
+    const resposta = await validarSenhaAdmin(senha)
+
+    if (resposta.sucesso) {
+      setAutenticado(true)
+    } else {
+      setErro(resposta.mensagem || 'Acesso negado')
+    }
+
+    setCarregando(false)
+  }
+
+  const handleLogout = async () => {
+    await sairPainelAdmin()
+    setAutenticado(false)
+  }
+
+  if (autenticado === null) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-light-cream">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary-yellow border-t-transparent"></div>
+      </div>
+    )
+  }
+
+  if (!autenticado) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-light-cream">
+        <div className="w-full max-w-md rounded-3xl bg-white p-10 shadow-2xl">
+          <div className="mb-8 flex flex-col items-center">
+            <Image
+              src="/logo2.jpg"
+              alt="C.A.S.C.A. Logo"
+              width={160}
+              height={60}
+              className="mb-4 w-24 rounded-full drop-shadow-md"
+            />
+            <h1 className="text-2xl font-black text-deep-charcoal text-center">
+              Restrito a Administradores
+            </h1>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div>
+              <label className="mb-2 block text-sm font-bold text-slate-500">Palavra Chave</label>
+              <div className="relative">
+                <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="password"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  placeholder="Digite a senha de administrador"
+                  className="w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-4 pl-12 pr-4 text-deep-charcoal transition-all placeholder:text-slate-400 focus:border-primary-yellow focus:bg-white focus:outline-none"
+                  required
+                />
+              </div>
+              {erro && <p className="mt-2 text-sm font-semibold text-red-500">{erro}</p>}
+            </div>
+
+            <button
+              type="submit"
+              disabled={carregando}
+              className="w-full rounded-2xl bg-primary-yellow py-4 font-black uppercase tracking-widest text-deep-charcoal shadow-lg shadow-primary-yellow/30 transition-all hover:bg-yellow-400 active:scale-[0.98] disabled:opacity-50"
+            >
+              {carregando ? 'Validando...' : 'Acessar Painel'}
+            </button>
+          </form>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-light-cream font-lato flex min-h-screen">
@@ -53,11 +142,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold transition-all ${
-                    isActive
+                  className={`flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold transition-all ${isActive
                       ? 'from-primary-yellow text-deep-charcoal shadow-primary-yellow/10 bg-gradient-to-r to-yellow-500 shadow-md'
                       : 'text-white/60 hover:bg-white/10 hover:text-white'
-                  }`}
+                    }`}
                 >
                   <item.icon
                     size={20}
@@ -69,7 +157,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             })}
           </nav>
 
-          <button className="mt-auto flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold text-red-300 transition-all hover:bg-red-500/10 hover:text-red-400">
+          <button
+            onClick={handleLogout}
+            className="mt-auto flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold text-red-300 transition-all hover:bg-red-500/10 hover:text-red-400"
+          >
             <LogOut size={20} />
             <span>Sair do Painel</span>
           </button>
