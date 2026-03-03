@@ -309,6 +309,33 @@ const data = {
       deletadoEm: null,
     },
   ],
+  Ouvidoria: [
+    {
+      id: 1,
+      planilhaUrl: 'https://script.google.com/macros/s/AKfycbz7iyA83aoJFSh8eKaOuyS8qeMkwW3u1ioKmdcpsRVFGdpN3UD3VPJRSNrroXTgZ0NilA/exec',
+      campos: {
+        anonimo: { enabled: true, required: true, label: 'Deseja se identificar?' },
+        nome: { enabled: true, required: false, label: 'Nome completo' },
+        cidadeServico: { enabled: true, required: true, label: 'Cidade/Serviço' },
+        dataOcorrido: { enabled: true, required: false, label: 'Data do ocorrido' },
+        descricao: { enabled: true, required: true, label: 'Descreva a situação' },
+        persiste: { enabled: true, required: false, label: 'O problema persiste?' },
+        desejaRetorno: { enabled: true, required: true, label: 'Deseja receber retorno?' }
+      },
+      tipo: {
+        enabled: true,
+        required: true,
+        label: 'Tipo de manifestação',
+        options: ['Reclamação', 'Sugestão', 'Elogio', 'Solicitação', 'Denúncia']
+      },
+      meioContato: {
+        enabled: true,
+        required: false,
+        label: 'Meio de contato preferencial',
+        options: ['E-mail', 'Telefone']
+      }
+    }
+  ]
 }
 
 async function main() {
@@ -321,6 +348,7 @@ async function main() {
   await prisma.projeto.deleteMany()
   await prisma.atividade.deleteMany()
   await prisma.relatorio.deleteMany()
+  await prisma.ouvidoria.deleteMany()
   await prisma.conteudo.deleteMany()
 
   console.log('Inserindo Conteudo...')
@@ -351,6 +379,11 @@ async function main() {
   console.log('Inserindo Anexo...')
   for (const item of data.Anexo) {
     await prisma.anexo.create({ data: item })
+  }
+
+  console.log('Inserindo Ouvidoria...')
+  for (const item of data.Ouvidoria) {
+    await prisma.ouvidoria.create({ data: item })
   }
 
   console.log('Banco de dados semeado com sucesso com os dados do banco externo!')

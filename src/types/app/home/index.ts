@@ -39,6 +39,9 @@ export type TipoContato = {
   descricao: string
   email: string
   endereco: string
+  celular?: string
+  facebook?: string
+  instagram?: string
   imagemFundo?: string
 }
 

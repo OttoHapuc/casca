@@ -17,9 +17,11 @@ export type TipoOuvidoriaConfig = {
     desejaRetorno: TipoOuvidoriaFieldConfig
     meioContato: TipoOuvidoriaFieldConfig
   }
+  planilhaUrl?: string
 }
 
 export const ouvidoriaConfigPadrao: TipoOuvidoriaConfig = {
+  planilhaUrl: '',
   fields: {
     anonimo: {
       enabled: true,

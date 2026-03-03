@@ -58,7 +58,7 @@ export default async function HomePage() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      <Cabecalho />
+      <Cabecalho contato={dadosIniciais.contato} />
       <Principal {...dadosIniciais.hero} />
       <Certificacoes lista={certificacoes} />
       <Sobre {...dadosIniciais.sobre} />
@@ -92,9 +92,12 @@ export default async function HomePage() {
                 <MapPin size={20} />
               </div>
               <span>
-                Bom Jesus, 61 - Centro
-                <br />
-                Tremembé/SP.
+                {dadosIniciais.contato.endereco.split(' - ').map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && <br />}
+                  </span>
+                ))}
               </span>
             </div>
 
@@ -102,29 +105,37 @@ export default async function HomePage() {
               <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
                 <Mail size={20} />
               </div>
-              <span>cascafamilia@yahoo.com.br</span>
+              <a href={`mailto:${dadosIniciais.contato.email}`} className="hover:text-accent-blue transition-colors">
+                {dadosIniciais.contato.email}
+              </a>
             </div>
 
-            <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
-              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
-                <Facebook size={20} />
+            {dadosIniciais.contato.facebook && (
+              <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
+                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                  <Facebook size={20} />
+                </div>
+                <span>{dadosIniciais.contato.facebook}</span>
               </div>
-              <span>ong.casca</span>
-            </div>
+            )}
 
-            <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
-              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
-                <Instagram size={20} />
+            {dadosIniciais.contato.instagram && (
+              <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
+                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                  <Instagram size={20} />
+                </div>
+                <span>{dadosIniciais.contato.instagram}</span>
               </div>
-              <span>ong.casca</span>
-            </div>
+            )}
 
-            <div className="flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium">
-              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
-                <Phone size={20} />
+            {dadosIniciais.contato.celular && (
+              <div className="flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium">
+                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+                  <Phone size={20} />
+                </div>
+                <span>{dadosIniciais.contato.celular}</span>
               </div>
-              <span>(12) 3674-1284</span>
-            </div>
+            )}
           </div>
 
           <div className="text-deep-charcoal/80 mt-4 w-full border-t border-yellow-300/50 pt-6 text-center text-xs font-medium">

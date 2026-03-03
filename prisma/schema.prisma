@@ -75,3 +75,30 @@ model Classificacao {
   criadoEm   DateTime  @default(now())
   deletadoEm DateTime?
 }
+
+model Ouvidoria {
+  id           Int      @id @default(1)
+  planilhaUrl  String?
+  campos       Json
+  tipo         Json
+  meioContato  Json
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+}
+
+model ManifestacaoOuvidoria {
+  id              String   @id @default(cuid())
+  anonimo         Boolean
+  nome            String?
+  tipo            String
+  cidadeServico   String
+  dataOcorrido    String?
+  descricao       String
+  persiste        String?
+  desejaRetorno   Boolean
+  meioContato     String?
+  status          String   @default("Pendente")
+  observacaoAdmin String?
+  criadoEm        DateTime @default(now())
+  atualizadoEm    DateTime @updatedAt
+}

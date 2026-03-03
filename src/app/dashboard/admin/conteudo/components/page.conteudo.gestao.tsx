@@ -170,11 +170,10 @@ export default function GestaoConteudo() {
 
       {mensagem && (
         <div
-          className={`animate-fade-in-up rounded-2xl border p-5 text-sm font-bold shadow-sm transition-all ${
-            mensagem.erro
+          className={`animate-fade-in-up rounded-2xl border p-5 text-sm font-bold shadow-sm transition-all ${mensagem.erro
               ? 'border-red-100 bg-red-50 text-red-600'
               : 'border-green-100 bg-green-50 text-green-700'
-          }`}
+            }`}
         >
           {mensagem.texto}
         </div>
@@ -605,6 +604,27 @@ export default function GestaoConteudo() {
               value={conteudo.contato.endereco}
               onChange={(v) =>
                 setConteudo({ ...conteudo, contato: { ...conteudo.contato, endereco: v } })
+              }
+            />
+            <Input
+              label="Celular/WhatsApp"
+              value={conteudo.contato.celular || ''}
+              onChange={(v) =>
+                setConteudo({ ...conteudo, contato: { ...conteudo.contato, celular: v } })
+              }
+            />
+            <Input
+              label="Instagram (usuário ou link)"
+              value={conteudo.contato.instagram || ''}
+              onChange={(v) =>
+                setConteudo({ ...conteudo, contato: { ...conteudo.contato, instagram: v } })
+              }
+            />
+            <Input
+              label="Facebook (usuário ou link)"
+              value={conteudo.contato.facebook || ''}
+              onChange={(v) =>
+                setConteudo({ ...conteudo, contato: { ...conteudo.contato, facebook: v } })
               }
             />
           </div>

@@ -10,14 +10,12 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (valor: boo
     <button
       type="button"
       onClick={() => onChange(!checked)}
-      className={`inline-flex h-6 w-11 items-center rounded-full border px-0.5 transition-all ${
-        checked ? 'border-primary-yellow bg-primary-yellow' : 'border-grey-accent/30 bg-white'
-      }`}
+      className={`inline-flex h-6 w-11 items-center rounded-full border px-0.5 transition-all ${checked ? 'border-primary-yellow bg-primary-yellow' : 'border-grey-accent/30 bg-white'
+        }`}
     >
       <span
-        className={`h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${
-          checked ? 'translate-x-5' : 'translate-x-0'
-        }`}
+        className={`h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${checked ? 'translate-x-5' : 'translate-x-0'
+          }`}
       />
     </button>
   )
@@ -128,6 +126,7 @@ export default function GestaoOuvidoria() {
         .filter((t) => t.length > 0)
 
     const configuracaoAtualizada: TipoOuvidoriaConfig = {
+      ...config,
       fields: {
         ...config.fields,
         tipo: {
@@ -216,17 +215,31 @@ export default function GestaoOuvidoria() {
 
       {mensagem && (
         <div
-          className={`rounded-2xl border p-4 text-sm font-bold ${
-            mensagem.erro
+          className={`rounded-2xl border p-4 text-sm font-bold ${mensagem.erro
               ? 'border-red-100 bg-red-50 text-red-600'
               : 'border-green-100 bg-green-50 text-green-700'
-          }`}
+            }`}
         >
           {mensagem.texto}
         </div>
       )}
 
       <div className="space-y-5">
+        <div className="border-grey-accent/15 rounded-2xl border bg-white/60 p-4">
+          <div className="space-y-1">
+            <p className="text-grey-accent text-xs font-black tracking-[0.18em] uppercase">
+              URL da Planilha (Apenas para uso interno)
+            </p>
+            <input
+              type="text"
+              value={config.planilhaUrl || ''}
+              onChange={(e) => setConfig({ ...config, planilhaUrl: e.target.value })}
+              className="border-grey-accent/20 text-deep-charcoal placeholder:text-grey-accent/40 focus:border-accent-blue focus:ring-accent-blue/10 w-full rounded-xl border bg-white px-3 py-2 text-sm font-bold transition-all outline-none focus:ring-4"
+              placeholder="https://docs.google.com/spreadsheets/d/..."
+            />
+          </div>
+        </div>
+
         <CampoLinha
           nomeCampo="Identificação"
           config={campos.anonimo}

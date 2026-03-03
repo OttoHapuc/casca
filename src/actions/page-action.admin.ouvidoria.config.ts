@@ -2,48 +2,62 @@ import { RespostaPadrao } from '@/types/api'
 import { withDb } from '@/lib/prisma'
 import { TipoOuvidoriaConfig, ouvidoriaConfigPadrao } from '@/types/app/ouvidoria'
 
-type DadosConteudoOuvidoria = {
-  ouvidoriaConfig?: TipoOuvidoriaConfig
-} & Record<string, unknown>
-
 export async function buscarOuvidoriaConfigAdmin(): Promise<TipoOuvidoriaConfig> {
   return await withDb(async (prisma) => {
-    const conteudo = await prisma.conteudo.findUnique({
-      where: { slug: 'principal' },
+    const ouvidoriaDb = await prisma.ouvidoria.findUnique({
+      where: { id: 1 },
     })
 
-    if (!conteudo || !conteudo.dados) {
+    if (!ouvidoriaDb) {
       return ouvidoriaConfigPadrao
     }
 
-    const dados = conteudo.dados as DadosConteudoOuvidoria
+    const { campos, tipo, meioContato, planilhaUrl } = ouvidoriaDb
+    const parsedCampos = typeof campos === 'object' && campos !== null ? campos : {}
+    const parsedTipo = typeof tipo === 'object' && tipo !== null ? tipo : {}
+    const parsedMeioContato = typeof meioContato === 'object' && meioContato !== null ? meioContato : {}
 
-    if (dados.ouvidoriaConfig) {
-      return dados.ouvidoriaConfig
+    const config: TipoOuvidoriaConfig = {
+      planilhaUrl: planilhaUrl || '',
+      fields: {
+        ...ouvidoriaConfigPadrao.fields,
+        ...(parsedCampos as any),
+        tipo: {
+          ...ouvidoriaConfigPadrao.fields.tipo,
+          ...(parsedTipo as any),
+        },
+        meioContato: {
+          ...ouvidoriaConfigPadrao.fields.meioContato,
+          ...(parsedMeioContato as any),
+        },
+      },
     }
 
-    return ouvidoriaConfigPadrao
+    return config
   })
 }
 
 export async function salvarOuvidoriaConfig(config: TipoOuvidoriaConfig): Promise<RespostaPadrao> {
   return await withDb(async (prisma) => {
     try {
-      const conteudo = await prisma.conteudo.findUnique({
-        where: { slug: 'principal' },
-      })
+      const { planilhaUrl, fields } = config
+      const { tipo, meioContato, ...outrosCampos } = fields
 
-      const dadosAtuais: DadosConteudoOuvidoria =
-        (conteudo && (conteudo.dados as DadosConteudoOuvidoria)) || {}
-      const dadosAtualizados: DadosConteudoOuvidoria = {
-        ...dadosAtuais,
-        ouvidoriaConfig: config,
-      }
-
-      await prisma.conteudo.upsert({
-        where: { slug: 'principal' },
-        update: { dados: dadosAtualizados as any },
-        create: { slug: 'principal', dados: dadosAtualizados as any },
+      await prisma.ouvidoria.upsert({
+        where: { id: 1 },
+        create: {
+          id: 1,
+          planilhaUrl: planilhaUrl || '',
+          campos: outrosCampos as any,
+          tipo: tipo as any,
+          meioContato: meioContato as any,
+        },
+        update: {
+          planilhaUrl: planilhaUrl || '',
+          campos: outrosCampos as any,
+          tipo: tipo as any,
+          meioContato: meioContato as any,
+        },
       })
 
       return {
