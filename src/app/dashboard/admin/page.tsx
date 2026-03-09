@@ -15,7 +15,7 @@ export default function AdminDashboardPage() {
         <GestaoCertificacoes />
       </section>
 
-      <section id="anexos" className="scroll-mt-32">
+      <section id="transparencia" className="scroll-mt-32">
         <GestaoAnexos />
       </section>
 
