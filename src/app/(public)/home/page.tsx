@@ -10,6 +10,43 @@ import { TipoConteudoHome } from '@/types/app/home'
 import Image from 'next/image'
 import { MapPin, Mail, Facebook, Instagram, Phone } from 'lucide-react'
 
+const formatInstagram = (url: string) => {
+  if (!url) return ''
+  const match = url.match(/instagram\.com\/([^/?]+)/)
+  if (match) return '@' + match[1]
+  return url.startsWith('@') ? url : '@' + url
+}
+
+const getInstagramUrl = (url: string) => {
+  if (!url) return ''
+  let finalUrl = url
+  if (!url.includes('instagram.com')) {
+    finalUrl = `instagram.com/${url.replace('@', '')}`
+  }
+  return finalUrl.startsWith('http') ? finalUrl : `https://${finalUrl}`
+}
+
+const formatFacebook = (url: string) => {
+  if (!url) return ''
+  const match = url.match(/facebook\.com\/([^/?]+)/)
+  return match ? match[1] : url
+}
+
+const getFacebookUrl = (url: string) => {
+  if (!url) return ''
+  let finalUrl = url
+  if (!url.includes('facebook.com')) {
+    finalUrl = `facebook.com/${url}`
+  }
+  return finalUrl.startsWith('http') ? finalUrl : `https://${finalUrl}`
+}
+
+const getWhatsappUrl = (phone: string) => {
+  if (!phone) return ''
+  const cleaned = phone.replace(/\D/g, '')
+  return `https://wa.me/55${cleaned}`
+}
+
 export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
@@ -87,8 +124,13 @@ export default async function HomePage() {
           </div>
 
           <div className="flex w-full flex-wrap items-center justify-center gap-10">
-            <div className="flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium">
-              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(dadosIniciais.contato.endereco)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-accent-blue group flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium transition-colors"
+            >
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-transform group-hover:scale-110">
                 <MapPin size={20} />
               </div>
               <span>
@@ -99,42 +141,58 @@ export default async function HomePage() {
                   </span>
                 ))}
               </span>
-            </div>
+            </a>
 
-            <div className="flex max-w-[200px] flex-col items-center space-y-3 text-center text-sm font-medium">
-              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+            <a
+              href={`mailto:${dadosIniciais.contato.email}`}
+              className="hover:text-accent-blue group flex max-w-[200px] flex-col items-center space-y-3 text-center text-sm font-medium transition-colors"
+            >
+              <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-transform group-hover:scale-110">
                 <Mail size={20} />
               </div>
-              <a href={`mailto:${dadosIniciais.contato.email}`} className="hover:text-accent-blue transition-colors">
-                {dadosIniciais.contato.email}
-              </a>
-            </div>
+              <span>{dadosIniciais.contato.email}</span>
+            </a>
 
             {dadosIniciais.contato.facebook && (
-              <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
-                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+              <a
+                href={getFacebookUrl(dadosIniciais.contato.facebook)}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-accent-blue group flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium transition-colors"
+              >
+                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-transform group-hover:scale-110">
                   <Facebook size={20} />
                 </div>
-                <span>{dadosIniciais.contato.facebook}</span>
-              </div>
+                <span>{formatFacebook(dadosIniciais.contato.facebook)}</span>
+              </a>
             )}
 
             {dadosIniciais.contato.instagram && (
-              <div className="flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium">
-                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+              <a
+                href={getInstagramUrl(dadosIniciais.contato.instagram)}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-accent-blue group flex max-w-[140px] flex-col items-center space-y-3 text-center text-sm font-medium transition-colors"
+              >
+                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-transform group-hover:scale-110">
                   <Instagram size={20} />
                 </div>
-                <span>{dadosIniciais.contato.instagram}</span>
-              </div>
+                <span>{formatInstagram(dadosIniciais.contato.instagram)}</span>
+              </a>
             )}
 
             {dadosIniciais.contato.celular && (
-              <div className="flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium">
-                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md">
+              <a
+                href={getWhatsappUrl(dadosIniciais.contato.celular)}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-accent-blue group flex max-w-[160px] flex-col items-center space-y-3 text-center text-sm font-medium transition-colors"
+              >
+                <div className="text-primary-yellow flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md transition-transform group-hover:scale-110">
                   <Phone size={20} />
                 </div>
                 <span>{dadosIniciais.contato.celular}</span>
-              </div>
+              </a>
             )}
           </div>
 
