@@ -27,7 +27,7 @@ export default async function TransparenciaPage() {
         </div>
       </section>
 
-      {/* Relatórios */}
+      {/* Relatórios
       <section className="py-24">
         <div className="container mx-auto px-6">
           <h2 className="text-deep-charcoal mb-10 text-2xl font-black tracking-tight uppercase">
@@ -41,7 +41,7 @@ export default async function TransparenciaPage() {
             <ListaRelatorios relatorios={relatorios} />
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* Documentos por Cidade — com paginação */}
       <section className="border-deep-charcoal/5 border-t py-24">
