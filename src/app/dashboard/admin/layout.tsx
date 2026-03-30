@@ -29,6 +29,11 @@ const navItems = [
   { name: 'Certificações', href: '/dashboard/admin#certificacoes', icon: Award },
   { name: 'Anexos por Cidade', href: '/dashboard/admin#transparencia', icon: Paperclip },
   { name: 'Ouvidoria', href: '/dashboard/admin#ouvidoria', icon: MessageCircle },
+  {
+    name: 'Respostas Ouvidoria',
+    href: '/dashboard/admin#respostas-ouvidoria',
+    icon: MessageCircle,
+  },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

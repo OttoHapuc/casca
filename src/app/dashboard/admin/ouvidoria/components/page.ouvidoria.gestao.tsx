@@ -10,12 +10,14 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (valor: boo
     <button
       type="button"
       onClick={() => onChange(!checked)}
-      className={`inline-flex h-6 w-11 items-center rounded-full border px-0.5 transition-all ${checked ? 'border-primary-yellow bg-primary-yellow' : 'border-grey-accent/30 bg-white'
-        }`}
+      className={`inline-flex h-6 w-11 items-center rounded-full border px-0.5 transition-all ${
+        checked ? 'border-primary-yellow bg-primary-yellow' : 'border-grey-accent/30 bg-white'
+      }`}
     >
       <span
-        className={`h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${checked ? 'translate-x-5' : 'translate-x-0'
-          }`}
+        className={`h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${
+          checked ? 'translate-x-5' : 'translate-x-0'
+        }`}
       />
     </button>
   )
@@ -36,9 +38,9 @@ function CampoLinha({
   onChange: (config: TipoOuvidoriaConfig['fields'][keyof TipoOuvidoriaConfig['fields']]) => void
 }) {
   return (
-    <div className="border-grey-accent/15 grid grid-cols-1 items-center gap-4 rounded-2xl border bg-white/60 p-4 sm:grid-cols-[1.3fr,0.7fr,0.7fr]">
-      <div className="space-y-1">
-        <p className="text-grey-accent text-xs font-black tracking-[0.18em] uppercase">
+    <div className="border-grey-accent/15 flex flex-col gap-4 rounded-2xl border bg-white/60 p-4 transition-all hover:shadow-md">
+      <div className="space-y-2">
+        <p className="text-grey-accent text-[10px] font-black tracking-[0.15em] uppercase sm:text-[11px]">
           {nomeCampo}
         </p>
         <input
@@ -49,24 +51,26 @@ function CampoLinha({
         />
       </div>
 
-      <div className="flex items-center justify-between gap-3 sm:justify-center">
-        <span className="text-grey-accent text-[11px] font-bold tracking-[0.18em] uppercase">
-          Ativo
-        </span>
-        <Toggle
-          checked={config.enabled}
-          onChange={(valor) => onChange({ ...config, enabled: valor })}
-        />
-      </div>
+      <div className="border-grey-accent/10 flex items-center justify-between border-t pt-4">
+        <div className="flex items-center gap-3">
+          <span className="text-grey-accent text-[10px] font-bold tracking-[0.15em] uppercase sm:text-[11px]">
+            Ativo
+          </span>
+          <Toggle
+            checked={config.enabled}
+            onChange={(valor) => onChange({ ...config, enabled: valor })}
+          />
+        </div>
 
-      <div className="flex items-center justify-between gap-3 sm:justify-center">
-        <span className="text-grey-accent text-[11px] font-bold tracking-[0.18em] uppercase">
-          Obrigatório
-        </span>
-        <Toggle
-          checked={config.required}
-          onChange={(valor) => onChange({ ...config, required: valor })}
-        />
+        <div className="flex items-center gap-3">
+          <span className="text-grey-accent text-[10px] font-bold tracking-[0.15em] uppercase sm:text-[11px]">
+            Obrigatório
+          </span>
+          <Toggle
+            checked={config.required}
+            onChange={(valor) => onChange({ ...config, required: valor })}
+          />
+        </div>
       </div>
     </div>
   )
@@ -215,17 +219,18 @@ export default function GestaoOuvidoria() {
 
       {mensagem && (
         <div
-          className={`rounded-2xl border p-4 text-sm font-bold ${mensagem.erro
+          className={`rounded-2xl border p-4 text-sm font-bold ${
+            mensagem.erro
               ? 'border-red-100 bg-red-50 text-red-600'
               : 'border-green-100 bg-green-50 text-green-700'
-            }`}
+          }`}
         >
           {mensagem.texto}
         </div>
       )}
 
-      <div className="space-y-5">
-        <div className="border-grey-accent/15 rounded-2xl border bg-white/60 p-4">
+      <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="border-grey-accent/15 rounded-2xl border bg-white/60 p-4 md:col-span-2 xl:col-span-3">
           <div className="space-y-1">
             <p className="text-grey-accent text-xs font-black tracking-[0.18em] uppercase">
               URL da Planilha (Apenas para uso interno)

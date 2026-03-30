@@ -19,8 +19,11 @@ export default function AdminDashboardPage() {
         <GestaoAnexos />
       </section>
 
-      <section id="ouvidoria" className="scroll-mt-32 space-y-8">
+      <section id="ouvidoria" className="scroll-mt-32">
         <GestaoOuvidoria />
+      </section>
+
+      <section id="respostas-ouvidoria" className="scroll-mt-32">
         <GestaoManifestacoes />
       </section>
     </div>
