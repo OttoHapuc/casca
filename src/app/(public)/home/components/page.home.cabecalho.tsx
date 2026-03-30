@@ -117,7 +117,7 @@ export default function Cabecalho({ contato }: { contato?: TipoContato }) {
               className="bg-primary-yellow text-deep-charcoal mt-2 w-full rounded-2xl py-4 text-center text-lg font-black shadow-sm transition-all hover:scale-105 active:scale-95"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Fale Conosco
+              Trabalhe Conosco
             </Link>
           </div>
         </div>
