@@ -28,10 +28,11 @@ export default function Cabecalho({ contato }: { contato?: TipoContato }) {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-500 ${rolou || isMobileMenuOpen
+      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+        rolou || isMobileMenuOpen
           ? 'border-light-cream border-b bg-white/90 py-4 shadow-xl backdrop-blur-xl'
           : 'bg-transparent py-8'
-        }`}
+      }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
         <Link
@@ -70,7 +71,7 @@ export default function Cabecalho({ contato }: { contato?: TipoContato }) {
             Treinamentos
           </a>
           <Link
-            href={`mailto:${contato?.email || 'contato@casca.tatyverri.com'}`}
+            href="/home#contato"
             className="bg-primary-yellow text-deep-charcoal hover:shadow-primary-yellow/30 ml-2 rounded-full px-6 py-2.5 text-sm font-black shadow-sm transition-all hover:scale-105 hover:shadow-md active:scale-95"
           >
             Fale Conosco
@@ -112,7 +113,7 @@ export default function Cabecalho({ contato }: { contato?: TipoContato }) {
             </a>
             <div className="bg-grey-accent/10 my-4 h-px w-full" />
             <Link
-              href={`mailto:${contato?.email || 'contato@casca.tatyverri.com'}`}
+              href="/home#contato"
               className="bg-primary-yellow text-deep-charcoal mt-2 w-full rounded-2xl py-4 text-center text-lg font-black shadow-sm transition-all hover:scale-105 active:scale-95"
               onClick={() => setIsMobileMenuOpen(false)}
             >

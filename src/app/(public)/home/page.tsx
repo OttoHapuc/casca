@@ -4,7 +4,6 @@ import Sobre from './components/page.home.sobre'
 import Atividades from './components/page.home.atividades'
 import Projetos from './components/page.home.projetos'
 import Certificacoes from './components/page.home.certificacoes'
-import Contato from './components/page.home.contato'
 import { buscarConteudoHome, buscarCertificacoes } from '../../../actions'
 import { TipoConteudoHome } from '@/types/app/home'
 import Image from 'next/image'
@@ -101,9 +100,12 @@ export default async function HomePage() {
       <Sobre {...dadosIniciais.sobre} />
       <Atividades {...dadosIniciais.atividades} />
       <Projetos {...dadosIniciais.projetos} />
-      <Contato {...dadosIniciais.contato} />
 
-      <footer className="text-deep-charcoal mt-16 py-16" style={{ backgroundColor: '#ffe60033' }}>
+      <footer
+        id="contato"
+        className="text-deep-charcoal mt-16 py-16"
+        style={{ backgroundColor: '#ffe60033' }}
+      >
         <div className="container mx-auto flex flex-col items-center space-y-10 px-6">
           <div className="flex flex-col items-center space-y-4">
             <div className="shadow-deep-charcoal/15 flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-xl">

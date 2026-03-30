@@ -16,14 +16,18 @@ import {
 } from 'lucide-react'
 
 import Image from 'next/image'
-import { validarSenhaAdmin, verificarAcesso, sairPainelAdmin } from '@/actions/page-action.admin.auth'
+import {
+  validarSenhaAdmin,
+  verificarAcesso,
+  sairPainelAdmin,
+} from '@/actions/page-action.admin.auth'
 
 const navItems = [
   { name: 'Painel Geral', href: '/dashboard/admin', icon: LayoutDashboard },
   { name: 'Gestão de Conteúdo', href: '/dashboard/admin#conteudo', icon: Globe },
   { name: 'Transparência', href: '/dashboard/admin#transparencia', icon: FileText },
   { name: 'Certificações', href: '/dashboard/admin#certificacoes', icon: Award },
-  { name: 'Anexos por Cidade', href: '/dashboard/admin#anexos', icon: Paperclip },
+  { name: 'Anexos por Cidade', href: '/dashboard/admin#transparencia', icon: Paperclip },
   { name: 'Ouvidoria', href: '/dashboard/admin#ouvidoria', icon: MessageCircle },
 ]
 
@@ -62,15 +66,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (autenticado === null) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-light-cream">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary-yellow border-t-transparent"></div>
+      <div className="bg-light-cream flex min-h-screen items-center justify-center">
+        <div className="border-primary-yellow h-12 w-12 animate-spin rounded-full border-4 border-t-transparent"></div>
       </div>
     )
   }
 
   if (!autenticado) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-light-cream">
+      <div className="bg-light-cream flex min-h-screen items-center justify-center">
         <div className="w-full max-w-md rounded-3xl bg-white p-10 shadow-2xl">
           <div className="mb-8 flex flex-col items-center">
             <Image
@@ -80,7 +84,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               height={60}
               className="mb-4 w-24 rounded-full drop-shadow-md"
             />
-            <h1 className="text-2xl font-black text-deep-charcoal text-center">
+            <h1 className="text-deep-charcoal text-center text-2xl font-black">
               Restrito a Administradores
             </h1>
           </div>
@@ -89,13 +93,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div>
               <label className="mb-2 block text-sm font-bold text-slate-500">Palavra Chave</label>
               <div className="relative">
-                <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                <Lock
+                  size={20}
+                  className="absolute top-1/2 left-4 -translate-y-1/2 text-slate-400"
+                />
                 <input
                   type="password"
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
                   placeholder="Digite a senha de administrador"
-                  className="w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-4 pl-12 pr-4 text-deep-charcoal transition-all placeholder:text-slate-400 focus:border-primary-yellow focus:bg-white focus:outline-none"
+                  className="text-deep-charcoal focus:border-primary-yellow w-full rounded-2xl border-2 border-slate-100 bg-slate-50 py-4 pr-4 pl-12 transition-all placeholder:text-slate-400 focus:bg-white focus:outline-none"
                   required
                 />
               </div>
@@ -105,7 +112,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <button
               type="submit"
               disabled={carregando}
-              className="w-full rounded-2xl bg-primary-yellow py-4 font-black uppercase tracking-widest text-deep-charcoal shadow-lg shadow-primary-yellow/30 transition-all hover:bg-yellow-400 active:scale-[0.98] disabled:opacity-50"
+              className="bg-primary-yellow text-deep-charcoal shadow-primary-yellow/30 w-full rounded-2xl py-4 font-black tracking-widest uppercase shadow-lg transition-all hover:bg-yellow-400 active:scale-[0.98] disabled:opacity-50"
             >
               {carregando ? 'Validando...' : 'Acessar Painel'}
             </button>
@@ -142,10 +149,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold transition-all ${isActive
+                  className={`flex items-center space-x-3 rounded-2xl px-5 py-4 text-sm font-bold transition-all ${
+                    isActive
                       ? 'from-primary-yellow text-deep-charcoal shadow-primary-yellow/10 bg-gradient-to-r to-yellow-500 shadow-md'
                       : 'text-white/60 hover:bg-white/10 hover:text-white'
-                    }`}
+                  }`}
                 >
                   <item.icon
                     size={20}
