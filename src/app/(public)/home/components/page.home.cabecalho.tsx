@@ -74,7 +74,7 @@ export default function Cabecalho({ contato }: { contato?: TipoContato }) {
             href="/home#contato"
             className="bg-primary-yellow text-deep-charcoal hover:shadow-primary-yellow/30 ml-2 rounded-full px-6 py-2.5 text-sm font-black shadow-sm transition-all hover:scale-105 hover:shadow-md active:scale-95"
           >
-            Fale Conosco
+            Trabalhe Conosco
           </Link>
         </div>
 

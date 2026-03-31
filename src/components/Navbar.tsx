@@ -46,7 +46,7 @@ export default function Navbar() {
             href="mailto:contato@casca.tatyverri.com"
             className="bg-primary-yellow text-deep-charcoal rounded-full px-6 py-2 text-sm font-bold transition-transform hover:scale-105 active:scale-95"
           >
-            Fale Conosco
+            Trabalhe Conosco
           </Link>
         </div>
 
