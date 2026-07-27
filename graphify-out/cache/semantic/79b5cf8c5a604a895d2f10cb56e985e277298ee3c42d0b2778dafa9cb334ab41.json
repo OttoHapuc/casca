@@ -1,0 +1,302 @@
+{
+  "nodes": [
+    {
+      "id": "public_logo2_casca_logo",
+      "label": "C.A.S.C.A circular logo",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_casca_text",
+      "label": "C.A.S.C.A brand text",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_egg_shell",
+      "label": "Black egg/shell outline",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_boy_figure",
+      "label": "Stylized boy child icon",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_girl_figure",
+      "label": "Stylized girl child icon",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_yellow_background",
+      "label": "Yellow circular background",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_gradient_border",
+      "label": "Orange-to-pink gradient border",
+      "file_type": "image",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_child_focused_branding",
+      "label": "Child-focused brand identity",
+      "file_type": "concept",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_shell_protection",
+      "label": "Shell as protection/nurture metaphor",
+      "file_type": "concept",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_logo2_social_org_purpose",
+      "label": "Social/educational organization purpose",
+      "file_type": "concept",
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_casca_text",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_egg_shell",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_boy_figure",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_girl_figure",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_yellow_background",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_gradient_border",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_egg_shell",
+      "target": "public_logo2_boy_figure",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_egg_shell",
+      "target": "public_logo2_girl_figure",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_egg_shell",
+      "target": "public_logo2_casca_text",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_boy_figure",
+      "target": "public_logo2_child_focused_branding",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_girl_figure",
+      "target": "public_logo2_child_focused_branding",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_child_focused_branding",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_egg_shell",
+      "target": "public_logo2_shell_protection",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_text",
+      "target": "public_logo2_shell_protection",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_shell_protection",
+      "target": "public_logo2_child_focused_branding",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_casca_logo",
+      "target": "public_logo2_social_org_purpose",
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.25,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "public_logo2_child_focused_branding",
+      "target": "public_logo2_social_org_purpose",
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "public/logo2.jpg",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "public_logo2_central_emblem",
+      "label": "Central egg emblem with children and C.A.S.C.A text",
+      "nodes": [
+        "public_logo2_egg_shell",
+        "public_logo2_boy_figure",
+        "public_logo2_girl_figure",
+        "public_logo2_casca_text"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo2.jpg"
+    }
+  ]
+}

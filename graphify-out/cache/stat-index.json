@@ -1,0 +1,608 @@
+{
+  "/home/otto/Documentos/ODS/casca/.husky/_/applypatch-msg": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "6a9064e8fb13487a3a621e0dbb7bd8c82245b9c904b0c2dbcf3ce5fe55506b9c"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/commit-msg": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "0bff8d003cbfd9b75abbe94b6017890688fb016d9cd9e4474bba08706c61d3d0"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/h": {
+    "size": 551,
+    "mtime_ns": 1772740352200690080,
+    "word_count": 95,
+    "hash": "f99a890a7c2de1e26a154549cb667ee9a884327e25ddbd6380ab23a986570ffc"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/husky.sh": {
+    "size": 160,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 24,
+    "hash": "6db0aa99aece6ebd17bbc27c5e5287a462fb39cc4a2ca3a82a6277c166bdb3a0"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/post-applypatch": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "678bc23efa73439ac107fddd35e640e583d68b45ab0c119be3ba50a81553e99d"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/post-checkout": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "f5104aea4b990fe94fe2eacb0323c2128b3f66f11d3fc388538530dada2db808"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/post-commit": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "20dc01bba5753874a3746d18250b5b5d71aebbfbdfda5305a6dfc2541adb209b"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/post-merge": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "9dd56caa8fa28b5494661ce7c97d756013f200ac4e60f619671f4d4eca46faa6"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/post-rewrite": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "3aa066773301fd07106a7926663f6ca3931ebf19bcacce7e156ead4e8446121a"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/pre-applypatch": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "24332da3a5839bca3276206674c0c6119f653c3dd2b01e2f5b37194a02d185f8"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/pre-auto-gc": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "d0038c1f6c4208a560ea4669eefc633b8460563cc29fcbc3c0d6c44309916f62"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/pre-commit": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "d0b0ee2878cb9efe03dfbf9327e5038d7a10eabd56ad9b1321c45eff1447e98d"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/pre-merge-commit": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "20798fb4a9d9b6f3593cdd371ca98fa15a5d57c1bf9bfc489039b5595b7028ff"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/pre-push": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "dd427fbe45aac0d22b4b75cd3738b4f19bb6b9203413d57e83eb402c992e636d"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/pre-rebase": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "c94f2d13aabe67bf5766093bbd03c9b9e5580deadc230f73ad6421b3ec0bf290"
+  },
+  "/home/otto/Documentos/ODS/casca/.husky/_/prepare-commit-msg": {
+    "size": 39,
+    "mtime_ns": 1772740352200845318,
+    "word_count": 5,
+    "hash": "d571f11fd4274692937568cb770a19c830c585c6cef79f550d5c27340871a18f"
+  },
+  "/home/otto/Documentos/ODS/casca/Apresenta\u00e7\u00e3o C.A.S.C.A.pdf": {
+    "size": 6580707,
+    "mtime_ns": 1772740335818697681,
+    "word_count": 0,
+    "hash": "657dcbb93c040a37beae8aeb3c32daa7a88d6451ee9c9cb176185acdca4f5228"
+  },
+  "/home/otto/Documentos/ODS/casca/check-db.js": {
+    "size": 372,
+    "mtime_ns": 1772740335819090769,
+    "word_count": 41
+  },
+  "/home/otto/Documentos/ODS/casca/check-db.ts": {
+    "size": 368,
+    "mtime_ns": 1772740335819090769,
+    "word_count": 41
+  },
+  "/home/otto/Documentos/ODS/casca/commitlint.config.js": {
+    "size": 67,
+    "mtime_ns": 1772740335819090769,
+    "word_count": 6
+  },
+  "/home/otto/Documentos/ODS/casca/eslint.config.mjs": {
+    "size": 460,
+    "mtime_ns": 1772740335819090769,
+    "word_count": 42
+  },
+  "/home/otto/Documentos/ODS/casca/next.config.ts": {
+    "size": 130,
+    "mtime_ns": 1772740335819090769,
+    "word_count": 21
+  },
+  "/home/otto/Documentos/ODS/casca/package.json": {
+    "size": 1246,
+    "mtime_ns": 1772740335819779734,
+    "word_count": 108,
+    "hash": "e7f4ae86ecc7b7fe4d8a2224285862f6fd7ed40bcd3d1c3396627abc4117650e"
+  },
+  "/home/otto/Documentos/ODS/casca/postcss.config.mjs": {
+    "size": 92,
+    "mtime_ns": 1772740335819779734,
+    "word_count": 13
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/migrations/20260221031746_init/migration.sql": {
+    "size": 1382,
+    "mtime_ns": 1772740335819913136,
+    "word_count": 166,
+    "hash": "6dad2e425596a318bf9261b3421a92308853e8207928eed5a4361bd778340e9c"
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/migrations/20260223201551_add_cert_cidade_anexo/migration.sql": {
+    "size": 997,
+    "mtime_ns": 1772740335819913136,
+    "word_count": 121,
+    "hash": "a211b26812ed3e7dc196328945dc2d016d412342bb743d10beadea93dc2b7d64"
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/migrations/20260223215900_add_classificacao/migration.sql": {
+    "size": 308,
+    "mtime_ns": 1772740335819913136,
+    "word_count": 34,
+    "hash": "ba3a566dfe1ac5e6bd7f2dc4ad585362a5e282a7d03a7b2b30dd74908f9dad1c"
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/migrations/20260223220000_add_soft_delete/migration.sql": {
+    "size": 310,
+    "mtime_ns": 1772740335819913136,
+    "word_count": 37,
+    "hash": "6e68fe9fb5074358e642e139a2eb63da753c06be840ea725f2185be8be248e4d"
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/migrations/20260303212416_migracao_ouvidoria/migration.sql": {
+    "size": 354,
+    "mtime_ns": 1772740335819913136,
+    "word_count": 42,
+    "hash": "9b35ef7b824c85ad4b83605897a57bd7599a3b23eec5d7cc8f8b4271f01433a9"
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/migrations/20260303213218_add_manifestacoes_table/migration.sql": {
+    "size": 575,
+    "mtime_ns": 1772740335819913136,
+    "word_count": 62,
+    "hash": "de91bc711778b1f229ca0e77a208ca162b32281f7e05729d413a75998364fbb6"
+  },
+  "/home/otto/Documentos/ODS/casca/prisma/seed.ts": {
+    "size": 17846,
+    "mtime_ns": 1772740335820181376,
+    "word_count": 1574
+  },
+  "/home/otto/Documentos/ODS/casca/public/file.svg": {
+    "size": 391,
+    "mtime_ns": 1772740335820181376,
+    "word_count": 50,
+    "hash": "52163ecb5257da6ecb3ddf8967f0d51a0da93d79d48caa09e9d307ea1c1d3f17"
+  },
+  "/home/otto/Documentos/ODS/casca/public/globe.svg": {
+    "size": 1035,
+    "mtime_ns": 1772740335820220120,
+    "word_count": 154,
+    "hash": "8c99baedee05ada37bd392e179350c9a8e893c25c08cb2e1a8ec25f4f8a33868"
+  },
+  "/home/otto/Documentos/ODS/casca/public/logo2.jpg": {
+    "size": 7072,
+    "mtime_ns": 1772740335820269449,
+    "word_count": 273,
+    "hash": "79b5cf8c5a604a895d2f10cb56e985e277298ee3c42d0b2778dafa9cb334ab41"
+  },
+  "/home/otto/Documentos/ODS/casca/public/next.svg": {
+    "size": 1375,
+    "mtime_ns": 1772740335820269449,
+    "word_count": 183,
+    "hash": "9caa34ac82b48d59fd2add4c0dbf6fcceaf3c3904254c3ccd89dd00644b375ad"
+  },
+  "/home/otto/Documentos/ODS/casca/public/vercel.svg": {
+    "size": 128,
+    "mtime_ns": 1772740335820269449,
+    "word_count": 12,
+    "hash": "dd579ec801cede14607350aa14a79bf784424d7144e1b63dbcbc4b9e32c12474"
+  },
+  "/home/otto/Documentos/ODS/casca/public/window.svg": {
+    "size": 385,
+    "mtime_ns": 1772740335820269449,
+    "word_count": 63,
+    "hash": "58d233ee9a0b0231d74f31667bfd20bc006b78d64d40f6521293bd71f06d435e"
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/index.ts": {
+    "size": 487,
+    "mtime_ns": 1772740335820325615,
+    "word_count": 36
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.auth.ts": {
+    "size": 962,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 108
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.gerir-anexos.ts": {
+    "size": 3494,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 405
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.gerir-certificacoes.ts": {
+    "size": 1466,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 178
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.gerir-classificacoes.ts": {
+    "size": 2080,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 250
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.gerir-relatorios.ts": {
+    "size": 1065,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 124
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.ouvidoria.config.ts": {
+    "size": 2286,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 253
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.ouvidoria.manifestacoes.ts": {
+    "size": 1693,
+    "mtime_ns": 1774891159505757044,
+    "word_count": 182
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.admin.salvar-conteudo.ts": {
+    "size": 667,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 88
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.home.buscar-conteudo.ts": {
+    "size": 705,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 83
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.ouvidoria.buscar-config.ts": {
+    "size": 1228,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 135
+  },
+  "/home/otto/Documentos/ODS/casca/src/actions/page-action.transparencia.buscar-relatorios.ts": {
+    "size": 512,
+    "mtime_ns": 1772740335820345577,
+    "word_count": 53
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.atividades.tsx": {
+    "size": 3679,
+    "mtime_ns": 1772740335820546401,
+    "word_count": 271
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.cabecalho.tsx": {
+    "size": 4935,
+    "mtime_ns": 1774966509292984552,
+    "word_count": 381
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.certificacoes.tsx": {
+    "size": 2111,
+    "mtime_ns": 1772740335820590900,
+    "word_count": 164
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.contato.tsx": {
+    "size": 7474,
+    "mtime_ns": 1773257678570333246,
+    "word_count": 555
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.principal.tsx": {
+    "size": 4292,
+    "mtime_ns": 1772740335820590900,
+    "word_count": 306
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.projetos.tsx": {
+    "size": 4918,
+    "mtime_ns": 1772740335820590900,
+    "word_count": 339
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/components/page.home.sobre.tsx": {
+    "size": 4181,
+    "mtime_ns": 1772740335820590900,
+    "word_count": 301
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/home/page.tsx": {
+    "size": 8770,
+    "mtime_ns": 1774888952452268146,
+    "word_count": 738
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/ouvidoria/components/page.ouvidoria.form.tsx": {
+    "size": 20223,
+    "mtime_ns": 1772740335820876438,
+    "word_count": 1427
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/ouvidoria/page.tsx": {
+    "size": 1197,
+    "mtime_ns": 1772740335820876438,
+    "word_count": 101
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/transparencia/components/page.transparencia.anexos-paginados.tsx": {
+    "size": 127,
+    "mtime_ns": 1772740335820991139,
+    "word_count": 16
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/transparencia/components/page.transparencia.cidades-acordeao.tsx": {
+    "size": 6901,
+    "mtime_ns": 1772740335821010657,
+    "word_count": 477
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/transparencia/components/page.transparencia.lista-relatorios.tsx": {
+    "size": 1715,
+    "mtime_ns": 1772740335821010657,
+    "word_count": 123
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/(public)/transparencia/page.tsx": {
+    "size": 2686,
+    "mtime_ns": 1774891213117579659,
+    "word_count": 215
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/anexos/delete.ts": {
+    "size": 700,
+    "mtime_ns": 1772740335821125834,
+    "word_count": 85
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/anexos/get.ts": {
+    "size": 430,
+    "mtime_ns": 1772740335821185502,
+    "word_count": 54
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/anexos/post.ts": {
+    "size": 815,
+    "mtime_ns": 1772740335821185502,
+    "word_count": 99
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/anexos/route.ts": {
+    "size": 1625,
+    "mtime_ns": 1772740335821185502,
+    "word_count": 201
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/certificacoes/delete.ts": {
+    "size": 723,
+    "mtime_ns": 1772740335821185502,
+    "word_count": 85
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/certificacoes/get.ts": {
+    "size": 451,
+    "mtime_ns": 1772740335821238240,
+    "word_count": 54
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/certificacoes/post.ts": {
+    "size": 679,
+    "mtime_ns": 1772740335821238240,
+    "word_count": 89
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/certificacoes/route.ts": {
+    "size": 375,
+    "mtime_ns": 1772740335821238240,
+    "word_count": 53
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/cidades/delete.ts": {
+    "size": 703,
+    "mtime_ns": 1772740335821238240,
+    "word_count": 85
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/cidades/get.ts": {
+    "size": 431,
+    "mtime_ns": 1772740335821291125,
+    "word_count": 54
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/cidades/post.ts": {
+    "size": 609,
+    "mtime_ns": 1772740335821291125,
+    "word_count": 81
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/cidades/route.ts": {
+    "size": 375,
+    "mtime_ns": 1772740335821291125,
+    "word_count": 53
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/classificacoes/route.ts": {
+    "size": 1451,
+    "mtime_ns": 1772740335821291125,
+    "word_count": 173
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/home/form/home.ts": {
+    "size": 306,
+    "mtime_ns": 1772740335821354663,
+    "word_count": 36
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/home/get.ts": {
+    "size": 352,
+    "mtime_ns": 1772740335821354663,
+    "word_count": 39
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/home/post.ts": {
+    "size": 690,
+    "mtime_ns": 1772740335821354663,
+    "word_count": 79
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/home/route.ts": {
+    "size": 234,
+    "mtime_ns": 1772740335821354663,
+    "word_count": 35
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/ouvidoria-config/route.ts": {
+    "size": 1493,
+    "mtime_ns": 1772740335821354663,
+    "word_count": 155
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/[id]/deleted.ts": {
+    "size": 531,
+    "mtime_ns": 1772740335821436841,
+    "word_count": 71
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/[id]/route.ts": {
+    "size": 243,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 33
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/delete.ts": {
+    "size": 878,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 101
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/form/relatorio.ts": {
+    "size": 669,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 79
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/get.ts": {
+    "size": 655,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 76
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/post.ts": {
+    "size": 845,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 89
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/auth/relatorios/route.ts": {
+    "size": 375,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 53
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/api/ouvidoria/route.ts": {
+    "size": 2076,
+    "mtime_ns": 1772740335821456868,
+    "word_count": 220
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/anexos/components/page.anexos.gestao.tsx": {
+    "size": 17446,
+    "mtime_ns": 1772740335821595046,
+    "word_count": 1421
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/certificacoes/components/page.certificacoes.gestao.tsx": {
+    "size": 9256,
+    "mtime_ns": 1772740335821728155,
+    "word_count": 685
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/conteudo/components/page.conteudo.gestao.tsx": {
+    "size": 27609,
+    "mtime_ns": 1772740335821814101,
+    "word_count": 2035
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/layout.tsx": {
+    "size": 8322,
+    "mtime_ns": 1774889142051492565,
+    "word_count": 630
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/ouvidoria/components/page.ouvidoria.gestao.tsx": {
+    "size": 12689,
+    "mtime_ns": 1774889142100972671,
+    "word_count": 944
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/ouvidoria/components/page.ouvidoria.manifestacoes.tsx": {
+    "size": 15722,
+    "mtime_ns": 1774891159591756758,
+    "word_count": 1060
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/page.tsx": {
+    "size": 1025,
+    "mtime_ns": 1774889016957224865,
+    "word_count": 62
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/dashboard/admin/relatorios/components/page.relatorios.gestao.tsx": {
+    "size": 10074,
+    "mtime_ns": 1772740335822152615,
+    "word_count": 725
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/layout.tsx": {
+    "size": 760,
+    "mtime_ns": 1772740335822323975,
+    "word_count": 90
+  },
+  "/home/otto/Documentos/ODS/casca/src/app/page.tsx": {
+    "size": 103,
+    "mtime_ns": 1772740335822323975,
+    "word_count": 13
+  },
+  "/home/otto/Documentos/ODS/casca/src/components/Hero.tsx": {
+    "size": 2105,
+    "mtime_ns": 1772740335822323975,
+    "word_count": 174
+  },
+  "/home/otto/Documentos/ODS/casca/src/components/Navbar.tsx": {
+    "size": 1871,
+    "mtime_ns": 1774966496818149728,
+    "word_count": 169
+  },
+  "/home/otto/Documentos/ODS/casca/src/components/documentos-filtrados.tsx": {
+    "size": 9590,
+    "mtime_ns": 1772740335822407970,
+    "word_count": 777
+  },
+  "/home/otto/Documentos/ODS/casca/src/lib/prisma.ts": {
+    "size": 618,
+    "mtime_ns": 1772740335822456974,
+    "word_count": 79
+  },
+  "/home/otto/Documentos/ODS/casca/src/shemas/home/index.ts": {
+    "size": 468,
+    "mtime_ns": 1772740335822488748,
+    "word_count": 49
+  },
+  "/home/otto/Documentos/ODS/casca/src/shemas/relatorios/index.ts": {
+    "size": 427,
+    "mtime_ns": 1772740335822520947,
+    "word_count": 47
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/api/index.ts": {
+    "size": 146,
+    "mtime_ns": 1772740335822545597,
+    "word_count": 21
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/admin/index.ts": {
+    "size": 89,
+    "mtime_ns": 1772740335822573796,
+    "word_count": 10
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/anexos.ts": {
+    "size": 256,
+    "mtime_ns": 1772740335822587476,
+    "word_count": 36
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/certificacoes.ts": {
+    "size": 112,
+    "mtime_ns": 1772740335822603736,
+    "word_count": 16
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/home/index.ts": {
+    "size": 1053,
+    "mtime_ns": 1772740335822603736,
+    "word_count": 127
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/index.ts": {
+    "size": 164,
+    "mtime_ns": 1772740335822603736,
+    "word_count": 24
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/ouvidoria.ts": {
+    "size": 1721,
+    "mtime_ns": 1772740335822658121,
+    "word_count": 161
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/app/transparencia/index.ts": {
+    "size": 118,
+    "mtime_ns": 1772740335822658121,
+    "word_count": 16
+  },
+  "/home/otto/Documentos/ODS/casca/src/types/index.ts": {
+    "size": 44,
+    "mtime_ns": 1772740335822658121,
+    "word_count": 8
+  },
+  "/home/otto/Documentos/ODS/casca/tsconfig.json": {
+    "size": 670,
+    "mtime_ns": 1772740335822658121,
+    "word_count": 56,
+    "hash": "9b970091c97632397c54f36044cd1474be3b53104e9c4bd66fe636f0081c0852"
+  }
+}
